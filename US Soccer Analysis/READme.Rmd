@@ -1,0 +1,891 @@
+---
+title: "US Soccer Attendance"
+output: 
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: TRUE
+      smooth_scroll: false
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+library(tidyverse)
+library(rvest)
+library(fuzzyjoin)
+library(scales)
+library(ggthemes)
+library(readxl)
+library(here)
+library(rio)
+library(kableExtra)
+```
+
+# Introduction
+
+This is an analysis of US professional soccer attendance data. Through
+looking at both MLS and USL attendance trends for 2022 and 2023 I am
+hoping to come to some insights about what is driving attendance in US
+soccer and how the USL and MLS (the two main professional leagues)
+compare.
+
+# Data Collection
+
+## Inputing and Cleaning USL and MLS Attendance Data
+
+Utilizing rvest package I scraped data from soccerstadiumdigest.com to
+get data for the USL Championship league. I then coerced the
+imputed data into a data frame for easier manipulation and renamed a few
+of the columns.
+
+```{r}
+html <- read_html("https://soccerstadiumdigest.com/2023-usl-championship-attendance/")
+
+usl_2023_attendance <- html %>% 
+    html_node("table") %>% 
+    html_table(
+      header = TRUE,
+    )
+
+usl_2023_attendance <- as.data.frame(usl_2023_attendance)
+usl_2023_attendance <- usl_2023_attendance[,-1]
+usl_2023_attendance <- usl_2023_attendance[,-7]
+usl_2023_attendance <- usl_2023_attendance[-(24:26),]
+
+
+usl_2023_attendance <- usl_2023_attendance %>% 
+  rename(Average = Av.,
+         Games = Gms,
+         '2022 Average' = '2022')
+
+```
+
+Following this I then did some quick cleaning to get rid of commas and
+convert some of the DF columns into numeric values.
+
+```{r}
+usl_2023_attendance$Average <- gsub(",","",usl_2023_attendance$Average)
+usl_2023_attendance$Totals <- gsub(",","",usl_2023_attendance$Totals)
+usl_2023_attendance$`2022 Average` <- gsub(",","",usl_2023_attendance$`2022 Average`)
+
+usl <- usl_2023_attendance %>% 
+  mutate_at(c('Average','Totals','2022 Average'), as.numeric)
+```
+
+Here is a view of the USL Championships 2023 attendance data.
+
+```{r echo = FALSE}
+usl %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+Now following the same steps with the 2023 MLS data from
+<https://soccerstadiumdigest.com/2023-mls-attendance/> we get this
+result.
+
+```{r include=FALSE}
+htmlMLS <- read_html("https://soccerstadiumdigest.com/2023-mls-attendance/")
+
+MLS_2023_attendance <- htmlMLS %>% 
+  html_node("table") %>% 
+  html_table(
+    header = TRUE
+  )
+
+MLS_2023_attendance <- as.data.frame(MLS_2023_attendance)
+MLS_2023_attendance <- MLS_2023_attendance[,-1]
+MLS_2023_attendance <- MLS_2023_attendance[,-(7)]
+MLS_2023_attendance <- MLS_2023_attendance[-(30:31),]
+
+MLS_2023_attendance <- MLS_2023_attendance %>% 
+  rename(Average = Av.,
+         Games = Gms,
+         '2022 Average' = '2022',
+         Totals = Total)
+
+MLS_2023_attendance$Average <- gsub(",","",MLS_2023_attendance$Average)
+MLS_2023_attendance$Totals <- gsub(",","",MLS_2023_attendance$Totals)
+MLS_2023_attendance$`2022 Average` <- gsub(",","",MLS_2023_attendance$`2022 Average`)
+
+MLS <- MLS_2023_attendance %>% 
+  mutate_at(c('Average','Totals','2022 Average'), as.numeric)
+```
+
+```{r echo = FALSE}
+MLS %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+
+This next step is to prepare the data just imputed for a future join with
+stadium data taken from Wikipedia. Some of the team names from the attendance 
+date originating from soccerstadiumdigest.com do not exactly match the way the
+names are presented on Wikipedia. In order to be able to join the two data sets
+we essentially need to 'standardize' the team names so they match in both data 
+sets.
+
+```{r}
+# rename points for join - this is to make joining easier in future
+# with other data sets 
+usl$Team <- gsub("CS Switchbacks FC", "Colorado Springs Switchbacks FC", usl$Team)
+
+MLS$Team <- gsub("LA Galaxy", "Los Angeles Galaxy", MLS$Team)
+
+MLS$Team <- gsub("St. Louis SC", "St. Louis City SC", MLS$Team)
+
+MLS$Team <- gsub("NE Revolution", "New England Revolution", MLS$Team)
+
+MLS$Team <- gsub("LAFC", "Los Angeles FC", MLS$Team)
+
+MLS$Team <- gsub("NYC FC","New York City FC", MLS$Team)
+
+MLS$Team <- gsub("Sporting KC",
+                 "Sporting Kansas City", MLS$Team)
+MLS$Team <- gsub("SJ Earthquakes",
+                 "San Jose Earthquakes", MLS$Team)
+MLS$Team <- gsub("NY Red Bulls",
+                 "New York Red Bulls", MLS$Team)
+usl$Team <- gsub("Rio Grande Valley FC Toros", "Rio Grande Valley FC",
+                 usl$Team)
+```
+
+Then, using the rbind function we can combine both the USL and MLS attendance
+data frames.
+
+```{r}
+# join attendance together
+leagues_joined <-rbind(usl, MLS)
+```
+
+```{r echo=FALSE}
+leagues_joined %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+
+## Inputing and Cleaning USL and MLS Stadium Data
+
+Now we are going to input the stadium specific data from Wikipedia.
+
+```{r}
+htmlstadium <- read_html("https://en.wikipedia.org/wiki/List_of_Major_League_Soccer_stadiums")
+
+stadium_MLS <- htmlstadium %>% 
+  html_node("table.wikitable.sortable") %>% 
+  html_table(
+    header = TRUE,
+  )
+```
+
+
+With some quick manipulations.
+
+
+```{r}
+stadium_MLS <- stadium_MLS %>%
+  select(-c(Image,`Ref(s)`)) 
+
+stadium_MLS$Capacity <- readr::parse_number(stadium_MLS$Capacity)
+
+stadium_MLS$Team <- gsub("LA Galaxy", "Los Angeles Galaxy", stadium_MLS$Team)
+
+stadium_MLS$Team <- gsub("St. Louis SC", "St. Louis City SC", stadium_MLS$Team)
+
+stadium_MLS$Team <- gsub("NE Revolution", "New England Revolution", stadium_MLS$Team)
+
+stadium_MLS$Team <- gsub("LAFC", "Los Angeles FC", stadium_MLS$Team)
+
+stadium_MLS$Team <- gsub("NYC FC","New York City FC", stadium_MLS$Team)
+
+stadium_MLS$Team <- gsub("Sporting KC",
+                 "Sporting Kansas City", stadium_MLS$Team)
+stadium_MLS$Team <- gsub("SJ Earthquakes",
+                 "San Jose Earthquakes", stadium_MLS$Team)
+stadium_MLS$Team <- gsub("NY Red Bulls",
+                 "New York Red Bulls", stadium_MLS$Team)
+```
+
+
+Giving us this table.
+
+
+```{r echo= FALSE}
+stadium_MLS %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+
+The same steps were then taken for the USL Championship stadium data also taken 
+from Wikipedia: https://en.wikipedia.org/wiki/2023_USL_Championship_season.
+
+The USL data required an extra cleaning due to some stadium names having "[A]"
+by their names, indicating that the stadium was not soccer-specific. Removing
+the [A] required the use of the gsub function and a regular expression.
+
+
+```{r}
+html_usl_stadium <- read_html("https://en.wikipedia.org/wiki/2023_USL_Championship_season")
+
+usl_stadium <- html_usl_stadium %>%
+  html_node("table.wikitable.sortable") %>%
+  html_table(
+    header= T
+  )
+usl_stadium$Capacity <- readr::parse_number(usl_stadium$Capacity)
+usl_stadium$Stadium <- gsub("\\Q[A]\\E","",usl_stadium$Stadium)
+
+usl_stadium$Team <- gsub("CS Switchbacks FC", 
+                         "Colorado Springs Switchbacks FC", usl_stadium$Team)
+usl_stadium$Team <- gsub("Rio Grande Valley FC Toros", "Rio Grande Valley FC",
+                 usl_stadium$Team)
+```
+
+```{r echo=FALSE}
+usl_stadium %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+
+## Joining both the MLS and USL data sets
+
+For this join I utilized the stringdist_inner_join() function from the fuzzyjoin
+library, allowing me to join both the attendance and stadium data by matching 
+the two tables with the 'team' variable. This is why we went through the 
+trouble of renaming some of team names earlier in the process. 
+
+
+```{r}
+# Merge stadium data with leagues data frame
+mls_filter <- stadium_MLS %>%
+  subset(select = c("Stadium","Team","Capacity"))
+
+stadium_joined <- rbind(mls_filter, usl_stadium)
+
+# joining data for attendance and stadium capacity
+leagues_master <- leagues_joined %>%
+  stringdist_inner_join(stadium_joined, by ="Team", max_dist = 3) %>%
+  select(-Team.y) %>%
+  rename(Teams = Team.x)
+```
+
+
+I also created two other columns in the table so we can have insight into what
+percentage of the stadium was filled on average for both 2022 and 2023. 
+
+
+```{r}
+# creation of % filled columns
+leagues_master <- leagues_master %>%
+  mutate("%_2023_Fill" = (Average/Capacity)) %>%
+  mutate("%_2022_Fill" = (leagues_master$`2022 Average`/Capacity))
+```
+
+
+Here is the table with the most recent additions:
+
+
+```{r echo=FALSE}
+leagues_master %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+
+I also made separate data frames for both the MLS and USL. This will allow us 
+to analyze the leagues separately later on.
+
+
+```{r}
+#MLS DF
+mls_master <- MLS %>%
+  stringdist_inner_join(stadium_MLS, by ="Team", max_dist = 3) %>%
+  select(-Team.y) %>%
+  rename(Teams = Team.x)
+# creation of % filled columns
+mls_master <- mls_master %>%
+  mutate("%_2023_Fill" = (Average/Capacity)) %>%
+  mutate("%_2022_Fill" = (mls_master$`2022 Average`/Capacity))
+
+
+#USL DF
+usl_master <- usl %>%
+  stringdist_inner_join(usl_stadium, by ="Team", max_dist = 3) %>%
+  select(-Team.y) %>%
+  rename(Teams = Team.x)
+# creation of % filled columns
+usl_master <- usl_master %>%
+  mutate("%_2023_Fill" = (Average/Capacity)) %>%
+  mutate("%_2022_Fill" = (usl_master$`2022 Average`/Capacity))
+
+```
+
+
+
+# Adding Extra Data Values for Exploratory and Correlative Analysis
+
+Two important variables that can provide insight into attendance are points 
+and financials. Points being the point value of the team at the end of the 
+season. In professional soccer, teams are awarded 3 points for a win and 1 point
+for a draw. Theoretically, teams that have more points would have higher
+attendance. 
+
+Furthermore, I also hypothesize that there will be a correlation between
+the financial valuation of a clubs roster and it's attendance. Teams that 
+have higher payrolls and more star players should be able to draw bigger crowds.
+
+Lastly, I'm also curious about what I call "city moral." If a city has happier 
+citizens will they be more likely to support the city's club, because in a sense 
+the club represents a city. One way to analyze this is by using approval 
+ratings of government officials as a measure of support. Mayoral data is tricky
+to find so I decided to use Governor approval ratings. This obviously is not the
+most effective strategy so this aspect of the project is really just an extra
+step.
+
+Let's now input data for these variables. 
+
+
+## City and State Values
+
+Firstly, I wanted to add in city/state columns for the main data set that 
+has been created thus far. Having the location date is important for joining
+Governor approval ratings with the correct teams.
+
+Like in the past steps I decided to scrape data from the USL championship 
+Wikipedia page. Because this page has multiple tables I had to take the extra
+step of subset a list of the tables from the webpage in order to retrive the
+table I needed. This required me to utilize html_nodes rather then html_node.
+
+```{r}
+## Adding in city and state data for future analysis ##
+
+html_city_USL <- read_html("https://en.wikipedia.org/wiki/USL_Championship")
+
+usl_city <- html_city_USL %>%
+  html_nodes("table.wikitable") %>%
+  .[2] %>%
+  html_table(header = T)
+
+usl_city <- data.frame(Reduce(rbind, usl_city))
+
+  
+# clean table
+usl_city<- usl_city[-c(1,14),]
+usl_city<- usl_city[,-8]
+
+# separating city and state for USL
+usl_city <- separate_wider_delim(usl_city, City, delim = ",", 
+                                 names = c("City", "State"))
+usl_city <- usl_city %>%
+  subset(select = c("Team", "City", "State")) %>%
+  rename(Teams = Team)
+
+
+#adding data to usl specific USL DF
+usl_master <- usl_master %>%
+  stringdist_inner_join(usl_city, by = "Teams", max_dist = 3) %>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+```
+
+
+Fortunately, my MLS stadium data that was previously retrieved already had
+location data. Although I did need to separate the city and state names into
+different columns and then add the two variables back into the MLS master sheet.
+
+
+```{r}
+# separating city and state MLS
+stadium_MLS <- separate_wider_delim(stadium_MLS, Location, delim = ",",
+                                names = c("City", "State"))
+stadium_city_mls <- stadium_MLS %>%
+  subset(select = c("Team", "City", "State"))%>%
+  rename(Teams = Team)
+
+mls_master <- mls_master %>%
+  stringdist_inner_join(stadium_city_mls, by = "Teams", max_dist = 3) %>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+
+cities <- rbind(usl_city, stadium_city_mls)
+
+
+# joining cities with leagues_master DF
+leagues_master <- leagues_master %>%
+  stringdist_inner_join(cities, by = "Teams", max_dist = 3) %>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+```
+
+
+
+## 2022 Point Values
+
+Using the same web scraping method as before I utilized data from 
+footballdatabase.com for the 2022 MLS points values and data from Wikipedia for 
+the 2022 USL Championship point values.
+
+
+```{r}
+##importing team records for MLS and USL then joining into one sheet to join with master ##
+
+#mls
+html_MLS_records <- read_html("https://footballdatabase.com/league-scores-tables/united-states-mls-2022")
+html_usl_points <- read_html("https://en.wikipedia.org/wiki/2022_USL_Championship_season")
+
+records_MLS <- html_MLS_records %>% 
+  html_node("table.table") %>% 
+  html_table(
+    header = TRUE,
+  )
+
+points_MLS <- records_MLS %>%
+  select(P, Club) %>%
+rename(Teams = Club, '2022 Pts' = P)
+
+
+#usl
+usl_records <- html_usl_points %>%
+  html_table(
+    header = TRUE
+  )
+
+eastern <- purrr::map_dfr(usl_records[5], dplyr::bind_rows)
+names(eastern)[2] <- "Teams"
+eastern <- eastern %>%
+  select(Teams, Pts)
+
+western <- purrr::map_dfr(usl_records[6], dplyr::bind_rows)
+names(western)[2] <- "Teams"
+western <- western %>%
+  select(Teams, Pts)
+
+usl_2022_standings <- rbind(eastern, western) %>%
+  rename('2022 Pts' = Pts)
+
+usl_2022_standings$Teams <- gsub("\\Q (C, X)\\E","",usl_2022_standings$Teams)
+usl_2022_standings$Teams <- gsub("\\Q Toros\\E"," FC", usl_2022_standings$Teams)
+
+#joining with both mls and usl masters
+usl_master <- usl_master %>%
+  stringdist_inner_join(usl_2022_standings, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+
+points_MLS$Teams <- gsub("LA Galaxy", "Los Angeles Galaxy", points_MLS$Teams)
+mls_master <- mls_master %>%
+  stringdist_inner_join(points_MLS, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+
+
+# merging mls and usl points for inner join
+Final_standings <- rbind(usl_2022_standings, points_MLS)
+
+
+# joining final 2022 points with other data 
+Final <- leagues_master %>%
+  stringdist_inner_join(Final_standings, by = "Teams", max_dist = 3)
+Final <- Final[,-13] 
+Final <- rename(.data = Final, Teams = Teams.x)
+```
+
+
+Here is the DF with the points variable added.
+
+
+```{r echo=FALSE}
+Final %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+
+
+## Governor Raitings
+
+```{r include=FALSE}
+## loading in other explanatory variable data for regression
+governor <- read_csv(here("Data", "Morning Consult Pro Governor Raitings Q2 2023.csv"), 
+                     col_names = TRUE )
+```
+
+
+Here is the Governor rating data taken from Morning Consult Pro. This data was
+then added to the main data frame.
+
+
+```{r echo=FALSE}
+governor %>%
+  kbl() %>%
+  kable_styling(fixed_thead = T)
+```
+
+```{r include=FALSE}
+# joining ratings with main df
+ratings <- subset(governor, select = c("Governor", "State", "Approve", "Dissaprove"))
+
+#remove white space for trim
+ratings$State <- trimws(ratings$State)
+Final$State <- trimws(Final$State)
+
+#join
+Final <- left_join(Final, ratings, by = "State")
+Final$Approve<- parse_number(x = Final$Approve )
+Final$Dissaprove<- parse_number(x = Final$Dissaprove )
+```
+
+
+## Club Finances
+
+This club finance data comes from https://www.transfermarkt.com and is current 
+as of October 11, 2023. So, towards the end of the 2023 season. 
+
+
+```{r}
+## loading in club finances (in millions of euros)
+finances <- read_xlsx(here("data", "Club Market Values.xlsx"), sheet = "Values")
+finances$`Market Value`<- parse_number(finances$`Market Value`)
+finances$`Total market value`<- parse_number(finances$`Total market value`)
+
+#joining data
+Final <- Final %>%
+  stringdist_inner_join(finances, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+
+
+#joining finance with usl master
+finances_usl <- read_xlsx(here("Data", "Club Market Values.xlsx"), sheet = "USL")
+finances_usl$`Market Value`<- parse_number(finances_usl$`Market Value`)
+finances_usl$`Total market value`<- parse_number(finances_usl$`Total market value`)
+usl_master <- usl_master %>%
+  stringdist_inner_join(finances_usl, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+
+#joining finance with mls master
+finances_mls <- read_xlsx(here("Data", "Club Market Values.xlsx"), sheet = "MLS")
+finances_mls$`Market Value`<- parse_number(finances_mls$`Market Value`)
+finances_mls$`Total market value`<- parse_number(finances_mls$`Total market value`)
+mls_master <- mls_master %>%
+  stringdist_inner_join(finances_mls, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x)
+```
+
+
+## 2023 Point Values 
+
+In addition to the 2022 point records I also wanted to include the data from 
+2023 for comparison and analysis. This data was importated from a spreadsheet
+and joined with the main data set like the past steps in this process. 
+
+```{r include=FALSE}
+# mls and usl 2023 points data
+#mls
+mls_2023_record <- read_xlsx(here("data", "MLS_USL Standings 2023.xlsx"), "MLS")
+mls_2023_points <- mls_2023_record %>%
+  select(Team, Pts)
+mls_2023_points <- mls_2023_points %>%
+  rename(Teams = Team)
+#usl
+usl_2023_record <- read_xlsx(here("data", "MLS_USL Standings 2023.xlsx"), "USL")
+usl_2023_points <- usl_2023_record %>%
+  select(Team, Pts)
+usl_2023_points <- usl_2023_points %>%
+  rename(Teams = Team)
+
+# joining 2023 Pts with data frames
+mls_master <- mls_master %>%
+  stringdist_inner_join(mls_2023_points, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x, `Pts 2023` = Pts)
+
+usl_master <- usl_master %>%
+  stringdist_inner_join(usl_2023_points, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x, `Pts 2023` = Pts)
+
+
+
+# adding 2023 points to full data frame with all data
+`2023_pts` <- rbind(mls_2023_points, usl_2023_points)
+
+Final <- Final%>%
+  stringdist_inner_join(`2023_pts`, by = "Teams", max_dist = 3)%>%
+  select(-Teams.y) %>%
+  rename(Teams = Teams.x, `Pts 2023` = Pts)
+```
+
+
+With both the 2022 values and 2023 values I created a new column in the data 
+frame for the percentage change in values from 2022 to 2023. 
+
+```{r}
+# calculating new column based on percentage increase in Pts from 2022 to 2023
+  
+Final <- Final %>% 
+  mutate("Pts_change_yoy" = ((`Pts 2023` -`2022 Pts`)/ `2022 Pts`) * 100)
+
+mls_master <- mls_master %>%
+  mutate("Pts_change_yoy" = ((`Pts 2023` -`2022 Pts`)/ `2022 Pts`) * 100)
+
+usl_master <- usl_master %>%
+  mutate("Pts_change_yoy" = ((`Pts 2023` -`2022 Pts`)/ `2022 Pts`) * 100)
+```
+
+
+
+## Quick Data Cleaning
+
+After imputing these explanatory variables I then removed data that
+skewed the data. For example one USL teams only had 4 home games, unlike other
+teams which played 10 or more games.
+
+
+```{r}
+## cleaning - phoenix and Birmingham only have four games
+# number of games are too low
+usl_master %>%
+  group_by(Games) %>%
+  arrange(Games)
+
+usl_master <- usl_master %>% 
+  filter(Games >= 10)
+Final <- Final %>%
+  filter(Games >=10 )
+
+
+# capacity skews attendance percentage
+Final %>%
+  filter(`%_2023_Fill`< .10) %>%
+  select(Teams, Capacity)
+# Miam FC is an outlier and this makes sense given their capacity
+
+Final <- Final %>%
+  filter(`%_2023_Fill`> .10)
+
+```
+
+
+# Exploratoy Plotting and Analysis
+
+```{r echo=FALSE}
+## exploratory plotting
+
+# plot of Attendance vs 2022 Points
+p <- ggplot(data = Final, mapping = aes(x = `2022 Pts`, y = `%_2022_Fill`)) +
+      geom_point(color='blue') + 
+  ggtitle(label = "Attendance vs Final Points at End of Season 2022") +
+  xlab(label = "Final points in 2022") + 
+  ylab(label = "% of stadium filled on average ") + 
+  theme(plot.title = element_text(hjust = 0.5), 
+        text = element_text(size = 16 ,
+                            family = "TT Arial")) +
+  scale_y_continuous(labels = scales::percent_format())
+
+p + theme_light() 
+```
+
+
+An initial plot of attendance (as a percentage of the stadium filled) versus the
+2022 point values of the various teams across all leagues does not provide any
+visual correlation.
+
+
+Lets look at 2023.
+
+```{r echo=FALSE}
+# plot of Attendance vs Pts 2023
+q <- ggplot(data = Final, mapping = aes(x = `Pts 2023`, y = `%_2023_Fill`)) +
+  geom_point(color='blue') + 
+  ggtitle(label = "Attendance vs Final Points at End of Season 2023") +
+  xlab(label = "Final points in 2023") + 
+  ylab(label = "% of stadium filled on average ") + 
+  theme(plot.title = element_text(hjust = 0.5), 
+        text = element_text(size = 16 ,
+                            family = "TT Arial")) +
+  scale_y_continuous(labels = scales::percent_format())
+q + theme_light() 
+```
+
+
+Much of the same result.
+
+
+```{r echo=FALSE}
+# bar chart of capacity across leagues
+ggplot(data = Final, aes(x = Teams, y = Capacity)) +
+  geom_col(aes(fill = Capacity)) + theme(plot.title = element_text(hjust = 0.5),
+                     axis.title.x=element_blank(),
+                     axis.text.x=element_blank(),
+                     axis.ticks.x=element_blank()) +
+  labs(title = "Capacity of US Soccer Venues") + 
+  scale_fill_gradient(low = "blue",
+                      high = "red",
+                      space = "Lab")
+```
+
+Looking as the capacity of stadiums across both leagues we see a wide difference
+in size.
+
+```{r}
+summary(Final$Capacity)
+```
+
+
+Maybe the capacity of the stadium has some kind of effect on the ability for 
+teams to fill the stadium? 
+
+```{r echo=FALSE}
+# 2022 Attendance vs capacity
+ggplot(data = Final, aes(x = Capacity, y = `%_2022_Fill`)) +
+  geom_point() + theme_clean() +
+  scale_y_continuous(labels = scales::percent_format())
+```
+
+There does appear to be a slight trend that bigger stadiums are actually 
+more well filled. Perhaps because clubs with bigger stadiums are more well
+established and popular. 
+
+Looking at governor support versus attendance there does not appear to be any 
+real correlation between the two variables. 
+
+```{r echo=FALSE }
+# attendance vs governor approval
+ggplot(data = Final, aes(x = Approve, y = `%_2023_Fill`)) +
+  geom_point() + theme_few()+
+  scale_y_continuous(labels = scales::percent_format())+
+  scale_x_continuous(labels = scales::percent_format(scale = 1))+
+  ggtitle(label = "Attendance vs Governor Approval")
+```
+
+
+
+```{r echo=FALSE}
+ggplot(data = mls_master %>% filter(`Total market value` < 70), 
+       aes(x = `Total market value`, y = `%_2023_Fill`)) +
+  geom_point(color = "purple") +
+  ggtitle(label = "Attendence vs Market Value in MLS 2023") +
+  theme_clean()+ scale_y_continuous(labels = scales::percent_format())+
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  xlab(label = "Total Market Value (Millions of Euros)") + 
+  ylab(label = "% Of Stadium Filled on Average ") + 
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+This plot of attendance versus market value indicates that there is potentially
+a correlation between the two variables. 
+
+
+However, the USL data does not indicate the same correlation.
+
+```{r echo=FALSE}
+ggplot(data = usl_master, aes(x = `Total market value`, y = `%_2023_Fill`)) +
+  geom_point(color = "purple") +
+  ggtitle(label = "Attendence vs Market Value in USL 2023") +
+  theme_clean()+ scale_y_continuous(labels = scales::percent_format())+
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  xlab(label = "Total Market Value (Millions of Euros)") + 
+  ylab(label = "% Of Stadium Filled on Average ")
+```
+
+This chart below illustrates the stark differences between the two leagues. All 
+the USL teams have a significantly lower value and little difference between 
+the size of values. 
+
+```{r echo=FALSE}
+# illustrates that leagues need to largely be treated separately
+ggplot(data = Final, aes(x = `Total market value`, y = `%_2023_Fill`)) +
+  geom_point(color = "skyblue") +
+  ggtitle(label = "Attendence vs Market Value in US soccer") +
+  theme_clean()+ scale_y_continuous(labels = scales::percent_format())+
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  xlab(label = "Total Market Value (Millions of Euros)") + 
+  ylab(label = "% Of Stadium Filled on Average ")
+
+```
+
+Looking further at the relation between season-ending point values and 
+Attendance. We can see that there is potentially some correlation within the
+MLS data set for the 2023 season. 
+
+```{r echo=FALSE}
+# focusing on MLS specifically
+ggplot(data = mls_master, aes(x = `Pts 2023`, y = `%_2023_Fill`)) +
+  geom_point(color = "black") +
+  ggtitle(label = "Attendence vs Market Value in MLS") +
+  scale_y_continuous(labels = scales::percent_format())+
+  theme(plot.title = element_text(hjust = 0.5), panel.background 
+        = element_rect(fill = "skyblue")) + 
+  xlab(label = "2023 Total Pts") + 
+  ylab(label = "% Of Stadium Filled on Average")
+```
+
+
+R can confirm this with the cor function,
+
+```{r}
+cor(mls_master$`Pts 2023`, mls_master$`%_2023_Fill`)
+```
+
+
+
+# Regression Analysis
+
+Using the prior exploratory analysis as a guide it appears that there
+are potentially some correlative relationships between attendance rates and 
+market valuations, as well as season-ending point values. 
+
+## First Model (MLS)
+
+```{r}
+#MLS models
+# removing the Messi effect inflating market value with filter
+model_mls <- lm(`%_2023_Fill` ~ `Total market value`,mls_master %>% 
+                  filter(`Total market value` < 70))
+summary(model_mls)
+```
+
+This first model does indicate a some relationship between Total Market Value
+and % of the stadium filled in 2023 for the MLS data set. Although the adjusted 
+R-squared on 0.14 indicates weak correlation. 
+
+## Second Model (MLS) - YOY as Response Variable 
+
+However, a model which incorporates year-over-year attendance rate as the
+response variable and the 2022 season ending point and total market value 
+as the explanatory variables offers a stronger fit.
+
+```{r}
+# change in response variable to YOY changes in attendance
+model_mls2 <- lm(`YOY` ~ `2022 Pts` + `Total market value`, mls_master)
+summary(model_mls2)
+```
+
+The Adjusted R-squared of 0.3286 is a much stronger fit and Total Market Value
+has a high level of significance. 
+
+
+## Third Model (USL) - YOY as Response Variable
+
+The same model as above, except it utilizes USL data, indicates the same
+relationship and fit as the model utilizing MLS data. 
+
+```{r}
+model_usl2 <- lm(`YOY` ~ `2022 Pts` + `Total market value`, mls_master)
+summary(model_usl2)
+```
+
+
+# Conclusion
+
+
