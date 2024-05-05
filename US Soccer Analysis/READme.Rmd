@@ -2,6 +2,7 @@
 title: "US Soccer Attendance"
 output: 
   html_document:
+    keep_md: true
     toc: true
     toc_float:
       collapsed: TRUE
@@ -886,6 +887,5 @@ summary(model_usl2)
 ```
 
 
-# Conclusion
 
 
