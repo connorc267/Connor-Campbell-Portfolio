@@ -1,15 +1,14 @@
 ---
 title: "US Soccer Attendance"
+author: "Connor Campbell"
 output: 
   html_document:
     keep_md: true
     toc: true
-    toc_float:
-      collapsed: TRUE
-      smooth_scroll: false
-editor_options: 
-  markdown: 
-    wrap: 72
+    toc_float: true
+editor_options:
+  markdown:
+    mode: gfm
 ---
 
 
