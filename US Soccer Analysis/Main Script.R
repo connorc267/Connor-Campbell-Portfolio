@@ -406,10 +406,6 @@ usl_master <- usl_master %>%
 
 
 
-
-
-
-
 ## cleaning - phoenix and Birmingham only have four games
 # number of games are too low
 usl_master %>%
@@ -426,14 +422,16 @@ Final <- Final %>%
 Final %>%
   filter(`%_2023_Fill`< .10) %>%
   select(Teams, Capacity)
-# Miam FC is an outlier and this makes sense given their capacity
+# Miami FC is an outlier and this makes sense given their capacity
 
 Final <- Final %>%
   filter(`%_2023_Fill`> .10)
 
 
-# Export of collected data in totality
+# Export of collected data in totality (without regions)
 export(Final, here("Output Data", "Collected US Soccer Data.csv"))
+
+
 
 
 
@@ -587,9 +585,6 @@ summary(Final$`%_2022_Fill`)
 
 
 
-
-
-
 ## regression modeling
 # relationship between points and market value?
 # need 2023 pts for more accurate control of models
@@ -609,3 +604,29 @@ summary(model_mls2)
 
 model_usl2 <- lm(`YOY` ~ `2022 Pts` + `Total market value`, mls_master)
 summary(model_usl2)
+
+
+
+
+# regional data to look for regional trends
+
+regions <- read_csv(here("data","us census bureau regions and divisions.csv"),
+                    col_names = TRUE)
+
+# joining data with other means
+by_region_usa <- Final %>%
+  inner_join(regions, by = "State")
+
+region_mean <- by_region_usa %>%
+  group_by(Region) %>% 
+  summarise(meanPercentageFill = mean(`%_2023_Fill`, na.rm = TRUE), 
+            medianPercentageFill = median(`%_2023_Fill`, na.rm = TRUE))
+
+
+a <- ggplot(region_mean, aes(x = Region, y = meanPercentageFill))
+
+a + geom_col(fill = "Sky Blue")+
+  ggtitle(label = "Percentage of Stadium Filed on Average in 2023 by Region") +
+  xlab(label = "Region") + 
+  ylab(label = "Percentage of Stadium Filed on Avreage") +
+  scale_y_continuous(labels = scales::percent_format())

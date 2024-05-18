@@ -661,7 +661,7 @@ Final <- Final %>%
 Final %>%
   filter(`%_2023_Fill`< .10) %>%
   select(Teams, Capacity)
-# Miam FC is an outlier and this makes sense given their capacity
+# Miami FC is an outlier and this makes sense given their capacity
 
 Final <- Final %>%
   filter(`%_2023_Fill`> .10)
@@ -879,5 +879,15 @@ summary(model_usl2)
 ```
 
 
+# Conclusion 
 
+- Correlation between market value and attendance. Higher market value
+correlates with better attendance year-over-year, controlling for the overall
+success of the team (measured by standings points).
+
+- Governor approval does not appear to be correlated with sport attendance.
+
+- Stadium size is not a primary driver of attendance.
+
+- Future investigations might look at median income and overall population size.
 
