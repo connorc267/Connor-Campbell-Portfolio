@@ -146,6 +146,8 @@ usl_stadium$Team <- gsub("Rio Grande Valley FC Toros", "Rio Grande Valley FC",
                          usl_stadium$Team)
 
 
+
+
 # Merge stadium data with leagues data frame
 mls_filter <- stadium_MLS %>%
   subset(select = c("Stadium","Team","Capacity"))
@@ -280,6 +282,12 @@ usl_2022_standings <- rbind(eastern, western) %>%
 
 usl_2022_standings$Teams <- gsub("\\Q (C, X)\\E","",usl_2022_standings$Teams)
 usl_2022_standings$Teams <- gsub("\\Q Toros\\E"," FC", usl_2022_standings$Teams)
+
+#Removing MLS next pro teams
+usl_2022_standings <- usl_2022_standings[- grep("New York Red Bulls II", 
+                                                usl_2022_standings$Teams),]
+usl_2022_standings <- usl_2022_standings[- grep("Atlanta United 2", 
+                                                usl_2022_standings$Teams),]
 
 #joining with both mls and usl masters
 usl_master <- usl_master %>%
@@ -573,7 +581,7 @@ cor(mls_master$`%_2023_Fill`, mls_master$Pts_change_yoy)
 
 # capacity
 # for MLS stadiums
-summary(stadium$Capacity)
+summary(stadium_MLS$Capacity)
 #for USL
 summary(usl_stadium$Capacity)
 #for all
@@ -626,7 +634,11 @@ region_mean <- by_region_usa %>%
 a <- ggplot(region_mean, aes(x = Region, y = meanPercentageFill))
 
 a + geom_col(fill = "Sky Blue")+
-  ggtitle(label = "Percentage of Stadium Filed on Average in 2023 by Region") +
+  ggtitle(label = "Percentage of Stadium Filled on Average in 2023 by Region") +
   xlab(label = "Region") + 
   ylab(label = "Percentage of Stadium Filed on Avreage") +
-  scale_y_continuous(labels = scales::percent_format())
+  scale_y_continuous(labels = scales::percent_format()) +
+  theme_clean()
+
+
+

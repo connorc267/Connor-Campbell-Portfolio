@@ -466,6 +466,12 @@ usl_2022_standings <- rbind(eastern, western) %>%
 usl_2022_standings$Teams <- gsub("\\Q (C, X)\\E","",usl_2022_standings$Teams)
 usl_2022_standings$Teams <- gsub("\\Q Toros\\E"," FC", usl_2022_standings$Teams)
 
+#Removing MLS next pro teams
+usl_2022_standings <- usl_2022_standings[- grep("New York Red Bulls II", 
+                                                usl_2022_standings$Teams),]
+usl_2022_standings <- usl_2022_standings[- grep("Atlanta United 2", 
+                                                usl_2022_standings$Teams),]
+
 #joining with both mls and usl masters
 usl_master <- usl_master %>%
   stringdist_inner_join(usl_2022_standings, by = "Teams", max_dist = 3)%>%
@@ -879,7 +885,7 @@ summary(model_usl2)
 ```
 
 
-# Conclusion 
+# Conclusions
 
 - Correlation between market value and attendance. Higher market value
 correlates with better attendance year-over-year, controlling for the overall
@@ -890,4 +896,41 @@ success of the team (measured by standings points).
 - Stadium size is not a primary driver of attendance.
 
 - Future investigations might look at median income and overall population size.
+
+
+
+# Appendix
+
+A look at the data at a regional level.
+
+```{r include=FALSE}
+# regional data to look for regional trends
+
+regions <- read_csv(here("data","us census bureau regions and divisions.csv"),
+                    col_names = TRUE)
+
+# joining data with other means
+by_region_usa <- Final %>%
+  inner_join(regions, by = "State")
+```
+
+```{r echo=FALSE}
+region_mean <- by_region_usa %>%
+  group_by(Region) %>% 
+  summarise(meanPercentageFill = mean(`%_2023_Fill`, na.rm = TRUE), 
+            medianPercentageFill = median(`%_2023_Fill`, na.rm = TRUE))
+
+a <- ggplot(region_mean, aes(x = Region, y = meanPercentageFill))
+
+a + geom_col(fill = "Sky Blue")+
+  ggtitle(label = "Percentage of Stadium Filled on Average in 2023 by Region") +
+  xlab(label = "Region") + 
+  ylab(label = "Percentage of Stadium Filed on Avreage") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  theme_clean()
+```
+
+A quick look at the data indicates that the Midwest and the Northeast
+show the most consistent support.
+
 
