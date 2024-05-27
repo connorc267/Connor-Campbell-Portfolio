@@ -1,7 +1,9 @@
 ---
 title: "US Soccer Attendance"
 author: "Connor Campbell"
-output: html_document
+output: 
+  github_document:
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -72,8 +74,7 @@ Here is a view of the USL Championships 2023 attendance data.
 
 ```{r echo = FALSE}
 usl %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 Now following the same steps with the 2023 MLS data from
@@ -110,8 +111,7 @@ MLS <- MLS_2023_attendance %>%
 
 ```{r echo = FALSE}
 MLS %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 
@@ -157,8 +157,7 @@ leagues_joined <-rbind(usl, MLS)
 
 ```{r echo=FALSE}
 leagues_joined %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 
@@ -210,8 +209,7 @@ Giving us this table.
 
 ```{r echo= FALSE}
 stadium_MLS %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 
@@ -242,8 +240,7 @@ usl_stadium$Team <- gsub("Rio Grande Valley FC Toros", "Rio Grande Valley FC",
 
 ```{r echo=FALSE}
 usl_stadium %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 
@@ -287,8 +284,7 @@ Here is the table with the most recent additions:
 
 ```{r echo=FALSE}
 leagues_master %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 
@@ -502,8 +498,7 @@ Here is the DF with the points variable added.
 
 ```{r echo=FALSE}
 Final %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 
@@ -523,8 +518,7 @@ then added to the main data frame.
 
 ```{r echo=FALSE}
 governor %>%
-  kbl() %>%
-  kable_styling(fixed_thead = T)
+  kable()
 ```
 
 ```{r include=FALSE}
