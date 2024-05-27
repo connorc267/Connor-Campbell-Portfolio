@@ -1,0 +1,197 @@
+---
+title: "Does Democratic Freedom Correlate With Income Inequality?"
+output: 
+  github_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(knitr) 
+library(tidyverse)
+library(readxl)
+library(here)
+library(kableExtra)
+```
+
+```{r, include=FALSE}
+source("Final Code.R", local = knitr::knit_global())
+```
+
+## Introduction
+
+In recent years inequality has taken greater importance within the spectrum of economic issues. The financial crisis and the Occupy Wall Street movement that followed were indicators of inequality as a growing issue for everyday Americans. Furthermore, Thomas Piketty released *Capital in the Twenty-First Century*, a work that ended up reaching the mainstream and commented on the growing wealth disparity worldwide. Even in the American political sphere, income and wealth inequality has become a defining issue. In a speech given during his time as an economic advisor for the Obama administration, Alan B. Krueger stated that “the rise in inequality in the United States over the last three decades has reached the point that inequality in incomes is causing an unhealthy division in opportunities, and is a threat to our economic growth” (Krueger, 2012). What has led to the rise in inequality is still up for debate.
+
+Currently, “the richest 10% of the global population currently takes 52% of global income, whereas the poorest half of the population earns 8.5% of it” (Chancel, Piketty, Saez, & Zucman, 2022). A multitude of factors may be related to this increased economic polarization. Economic policy is one such factor. The free market economic policies which followed the economic slowdown of the 70s have been cited as one potential cause. As Chancel, Piketty, Saez, and Zucman commented in their paper, “the institutions that kept inequality low (minimum wage, union, taxes, regulation, etc.) were to blame, and that what we needed was to unleash an entrepreneurial culture that celebrates the unabashed accumulation of private wealth” (Chancel, Piketty, Saez, & Zucman, 2022). Innovations in technology are also potential culprits (Jones, 2015) and of course, union membership, tax policy, and health also all play a potential role in the establishment of income inequality. However, it is unlikely that one specific factor drives income inequality and all the previously stated factors relate back to governmental institutions. Piketty summarized this neatly in an interview where he discussed the concept of the “inequality regime”, or “the justification [used] for the structure of inequality and also the institutions — the legal system, the educational system, the fiscal system — that help sustain a certain level of equality or inequality in a given society” (Pazzanese, 2020). If inequality regimes perpetuate inequality, then one would expect the voting citizens of nations to attempt to dismantle these regimes through the democratic process. Yet, this has not occurred, and Piketty even argues that “political platforms … have become less and less concerned with inequality and redistribution (Pazzanese 2020). When changes aren’t being made in the favor of the working class, governmental systems may be of significant impact, because when people don’t have the democratic freedom to advocate for the policies and candidates which may dismantle institutionally driven inequality then inequality regimes are able to prosper. So, a lack of democratic freedom may be a potential cause of global inequality. This hypothesis leads to the main question of this paper. Is there a correlation between democratic freedoms and income inequality?
+
+**Data:**
+
+Most of the data used in this report comes from the World Bank and its World Development Indicators database. This data is compiled by the World Bank from a variety of official government sources and is continuously updated (Data Bank World Development Indicators, 2022). The variables in the report that come from this database include GDP Per Capita (Current US\$), Gini Index, Income Share held the by highest 10%, Trade (% of GDP), Life expectancy at birth for females (years), secondary education duration (years), and final government expenditure as a percentage of GDP. The other significant data source was the Gapminder database (Gapminder, n.d.). Gapminder is a Swedish organization that promotes what it calls a fact-based worldview. It has a vast database that contains much of the same data the World Bank database contains, with a few other sources. For this report, the Democracy Index data were taken from the Gapminder database. Only data from the year 2015 is being used. Recent years don’t have enough data to work with and 2015 has many countries with Gini data available. There are 83 countries represented in the analysis. The democracy index is a numerical score for the state of a country’s democracy. It is based on five measures: “electoral process and pluralism, the functioning of government, political participation, democratic political culture and civil liberties” (A new low for global democracy, 2022). The score ranges from zero to 100 with 100 being the most democratic. The index is compiled by EIU, the research arm of The Economist. The Gini index is one of the measures of income inequality being used in this report. This variable is one of the response variables of the model. As defined by the World Bank the Gini measures “the extent to which the distribution of income or consumption among individuals or households within an economy deviates from a perfectly equal distribution. A Gini index of 0 represents perfect equality, while an index of 100 implies perfect inequality” (The World Bank, n.d.). The figure below illustrates the distribution of the Gini data when plotted with the Democracy Index.
+
+```{r fig.cap = "Figure 1. Gini Index vs Democracy Index", echo=FALSE}
+p <- ggplot(wdi, mapping = aes(DemocracyIndex,GINI))+
+         geom_point()
+p + ggtitle("GINI Index vs Democracy Index") +
+  xlab("Democracy Index") + ylab("GINI")+ theme_classic()
+```
+
+```{r}
+cor(wdi$DemocracyIndex,wdi$GINI, use = "complete.obs")
+```
+
+Democracy Index and Gini correlation: -0.2509
+
+The scatterplot of Gini and the Democracy Index illustrates a weak correlation between Gini and the Democracy Index with the data spread in a broad range.
+
+The second measure of inequality which functions as an alternative to Gini is the income share held by the top 10% of earners. This is a slightly different measure of inequality in that it centered more on the concentration of wealth at the top, and not the distribution of wealth across the population. The figure below illustrates a very similar distribution in comparison to the Gini index.
+
+```{r fig.cap= "Figure 2. Percentage of income held by top 10% vs Democracy Index", echo = FALSE}
+
+#plotting Democracy Index vs Top ten percent share of income
+q <- ggplot(wdi, mapping = aes(DemocracyIndex,TenpercentShare))+
+  geom_point()
+q + ggtitle("Income held by top 10% vs Democracy Index") +
+  xlab("Democracy Index") + ylab("Percentage of income held by top 10%") +
+  theme_classic()
+```
+
+```{r}
+cor(wdi$DemocracyIndex,wdi$TenpercentShare, use = "complete.obs")
+```
+
+Correlation: -0.2754291
+
+The figure shows a potential negative correlation, but it is hard to tell from the figure alone. The correlation coefficient illustrates a slight negative correlation. The two variables are correlated to a high degree, but the negative aspect hold in line with the hypothesis of the paper.
+
+The other explanatory variables which are included in the data used for this report are control variables. The reasoning for including them in the model will be detailed in the next section of the report.
+
+## Regression Analysis
+
+There are two main aspects to this modeling process. The first is the establishment of both the response and key explanatory variables, the second is the selection of control variables. I perform two regressions with different measures of inequality as the response variable. The Gini index functions as a widely used metric, that evaluates the distribution of income, so it made sense to choose it as a key responsive variable in the model. The percentage of income held by the top 10% of earners is the other response variable utilized in the second version of the model. This allows for comparison between measures of income inequality. The democratic freedom index is the explanatory variable of interest.
+
+The complexity of income inequality makes it necessary to include a significant amount of control variables in the final model. Prior models offer a guide for what to include. One widely cited study done by the IMF (Dabla-Norris, Kochhar, Ricka, Suphaphiphat, & Tsounta, 2015) includes a multitude of control variables, some of which were also used in this report including trade, education, and government spending. Equation 1 shows the full model, where the observational unit is countries.
+
+Equation 1. Democracy Index Model
+
+*inequality~2015~ = =β~0~ trade +β~1~ Education + β~2~ GovExp + β~3~ GDP + β~4~ Democracy Index*
+
+Where *inequality* is either of the two measures of inequality previously discussed: the Gini index and the income share of the highest 10% of earners. *Trade* is the sum of imports and exports as a percentage of GDP, *Education* is the duration of secondary education in years. Education relates to both inequality and democratic freedom because theoretically, a more educated populace would be less irrational when voting. Furthermore, as already discussed it was included in past studies looking at drivers of inequality, so it functions as a control. *GovExp* represents the general government final consumption expenditure as a % of GDP. One would expect higher government spending to mean greater taxation of the rich and more government programs which would decrease inequality. *GDP* is also a control variable. As already stated, the time frame of this data and the model is 2015. No variable transformations occurred, there were no obvious transformations that needed to be made when examining the data prior to creating the model.
+
+**Final Model Outputs**
+
+```{r}
+inequality_reg = lm(GINI ~ Trade +  LifeExpectancy +
+                      Education_Years + GovExp + DemocracyIndex + Union, data = wdi)
+summary(inequality_reg)
+```
+
+```{r}
+inequality_reg2 = lm(TenpercentShare ~ Trade +  LifeExpectancy +
+                      Education_Years + GovExp + DemocracyIndex + Union, data = wdi)
+summary(inequality_reg2)
+```
+
+An initial analysis of the model indicates that both models are statistically significant based on the F-statistic. Both have p-values that are virtually zero indicating high significance. The adjusted r-squared of 0. 297 for the Gini model indicates that 29.7% of the variability observed in the response variable is explained by the model. The regression using income held by the top 10% has a slightly higher r-squared value of 0.3412 indicating that 34% of the variability in the response variable is explained by the model.
+
+Looking further at the Gini-based model it is apparent that there are varying degrees of significance between the coefficients in the model. *Trade* has a p-value of 0.22 so it is not statistically significant. *Education* is significant within an alpha of virtually 0. *GovExp* is not statistically significant. The *DemocracyIndex* variable is not statistically significant.
+
+Examining the model based on income held by the top 10% reveals slightly different significance. *Education* has a high level of significance with a p-value of 0.0000341. The *DemocracyIndex* still has no level of significance.
+
+The coefficient for the Democracy Index is .08215 in the Gini model and 0.04871 in the top 10% model. This would indicate that for every increase in 1 unit of the Democracy Index, the Gini or percentage of income held by the top 10% increases by a unit of .08215 and .049% respectively.
+
+## Discussion
+
+The first conclusion to make according to this model is that, with respect to both response variables, democratic freedom is not a statistically significant driver of income inequality. When comparing the significance of the Democracy Index variable to other control variables in the model it appears that education and GDP are the more significant drivers in comparison to democratic freedoms. It should also be noted that the Democracy Index took on more significance when the income held by the top 10% was used as the measure of inequality. But in both models, the Democracy Index did not reach a significance level within an alpha of 0.05.
+
+Furthermore, the coefficient values for the Democracy Index variable were positive in both versions of the model. The positivity is interesting because it would indicate that as democratic freedom increases inequality potentially increases, which does not match the theoretical assumption of the paper. One would expect that countries with greater democracy would have greater equality. The model may suffer from omitted variable bias and multicollinearity, which would lead to biased results. Ideally, we would see greater significance within the model to make a claim about correlation. This lack of conclusive understanding is furthered by the fact that multiple other variables in the model have higher levels of significance. Furthermore, no claims of causality can be made from this report given the nature of the statistical analysis. But democratic freedom does not correlate with inequality in any significant way. The conclusion section later in the paper further speculates why there is no correlation shown in the models.
+
+To establish any causality a well-designed experiment would need to be performed that isolated democratic freedoms from other causes of inequality. This is virtually impossible in the real world but ideally, disregarding any ethical considerations, an experiment could be set up where people are randomly assigned to different countries of varying levels of democracy and then the level of income inequality is measured in each country. This could better establish a link between democratic freedoms and income inequality.
+
+## Limitations
+
+One limitation of this study was the lack of availability of data for inequality statistics. Not many countries had Gini data available in the same years, limiting the pool of data points to work from. Eighty-three plus countries is still a fine sample size but more countries would have given better data and a more concrete conclusion. More countries may have led to a completely different conclusion. Another significant limitation was the availability of data for certain control variables I was interested in including in the model. The most significant of these would be a measure of technological inequality. In my data set, there were no strong examples of a variable that might indicate technological inequality which is unfortunate given the academic literature on the importance of technology in driving the division of capital and income inequality.
+
+The last significant limitation was the measure used for democratic freedom. The Democracy Index comes from a reputable source and does an effective job of accomplishing the goal of the organization, but it might not be the most effective measure of democratic freedom, and it may not be specific enough to the actual institutional causes of inequality. One potential issue with the Index is that it does not seem to include much information regarding the effects of monetary contribution and special interests in its model. Theoretically, special interest groups sway democracies in favor of businesses and the wealthy so it would be ideal to have a measure that also includes that kind of information in its model. An ideal measure would also include more labor rights information in its model.
+
+## Conclusion
+
+The model shows no correlation between an index that measures democratic freedom and income inequality. Taking the model to be accurate, this result reveals that other factors play greater roles in determining economic inequality. One might expect that if countries have greater democratic systems, the constituents of the governing body would vote for candidates and measures which evened the economic playing field. This seems to be the case in certain countries like Norway and Finland which have very low levels of inequality and high levels of democracy. Many countries which have what the index calls “flawed democracies,” have a range of Gini indexes. Some have Gini’s that outperform their democracy scores while others, like the United States, have Gini’s that under perform their scores relative to other nations. Perhaps the individual culture of nations is a determining factor in the policies passed, and therefore the levels of inequality. Furthermore, it seems possible that populism and other political movements have impacted the importance of income inequality to voters in many nations. These are paths of study that could be taken in the future.
+
+In addition, future work might include the additional study of tax law and corporate lobbying. Previous academic work regarding wealth inequality has centered around historical tax income and the inequalities that arise. The topic of corporate lobbying and spending seems to have been somewhat neglected. Further research into the impact of corporate lobbying on tax policy, labor rights, and income inequality, in general, may reveal greater results regarding actual drivers of income inequality.
+
+## Additional Work
+
+**Additional descriptive data:**
+
+```{r}
+summary(wdi)
+```
+
+```{r echo=FALSE}
+# creating histograms to view each variable prior to making model to see if
+# any transformations will need to be made
+hist(wdi$GDP)
+hist(wdi$GINI)
+hist(wdi$Trade)
+hist(wdi$LifeExpectancy)
+hist(wdi$Education_Years)
+hist(wdi$GovExp_Education)
+hist(wdi$r)
+hist(wdi$TenpercentShare)
+hist(wdi$DemocracyIndex)
+hist(wdi$FundRights)
+hist(wdi$Union)
+```
+
+Table of Correlations
+
+```{r echo=FALSE}
+#Table of correlation 
+numeric <- select(wdi,GINI,Trade,LifeExpectancy,GovExp,DemocracyIndex,
+                  Union)
+cor_table <- cor(numeric, use = "complete.obs")
+kable(cor_table)
+```
+
+**Alternative Model:**
+
+Equation 2. Democracy Index Model with GDP included
+
+*inequality~2015~ = =β~0~ trade +β~1~ LifeExpectancy + β~2~ Education + β~3~ GovExp + β~4~ Union + β~5~DemocracyIndex + β~6~GDP*
+
+```{r}
+# alternative model 1
+inequality_reg3 = lm(GINI ~ LifeExpectancy + Trade + GDP +
+                       Education_Years + GovExp + DemocracyIndex + Union, data = wdi)
+summary(inequality_reg3)
+```
+
+```{r}
+# alternative model 2
+inequality_reg4 = lm(GINI ~ LifeExpectancy + Trade +
+                       Education_Years + GovExp + DemocracyIndex, data = wdi)
+
+summary(inequality_reg4)
+```
+
+## References
+
+*A new low for global democracy*. (2022, February 9). Retrieved from The Economist.
+
+*About* . (n.d.). Retrieved from The Global State of Democracy Indices : <https://www.idea.int/gsod-indices/about#Fundamental%20Rights>
+
+Chancel, L., Piketty, T., Saez, E., & Zucman, G. (2022). *World Inequality Report 2022.* World Inequality Lab.
+
+Dabla-Norris, E., Kochhar, K., Ricka, F., Suphaphiphat, N., & Tsounta, E. (2015). *Causes and Consequences of Income Inequality: A global perspective.* International Monetary Fund.
+
+*Data Bank World Development Indicators*. (2022, November 19). Retrieved from The World Bank.
+
+Gapminder (n.d.). *Download the data*. Retrieved from Gapminder: <https://www.gapminder.org/data/>
+
+Jones, C. I. (2015). Pareto and Piketty: The Macroeconomics of Top Income and Wealth Inequality. *Journal of Economic Perspectives*, 29-46.
+
+Krueger, A. (2012, January 12). *The Rise and Consequences of Inequality.* Retrieved from The Center for American Progress: <https://www.americanprogress.org/events/the-rise-and-consequences-of-inequality/>
+
+Pazzanese, C. (2020, March 3). *How political ideas keep economic inequality going*. Retrieved from The Harvard Gazette: <https://news.harvard.edu/gazette/story/2020/03/pikettys-new-book-explores-how-economic-inequality-is-perpetuated/>
+
+The World Bank. (n.d.). *Metadata Glossary*. Retrieved from The World Bank.
