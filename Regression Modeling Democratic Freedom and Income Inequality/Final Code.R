@@ -6,7 +6,6 @@ library(here)
 library(ggthemes)
 
 
-
 wdi <- read_xlsx(here("Data", "WDI 2015.xlsx"))
 
 # renaming variables
@@ -109,7 +108,4 @@ inequality_reg4 = lm(GINI ~ LifeExpectancy + Trade +
                        Education_Years + GovExp + DemocracyIndex, data = wdi)
 
 summary(inequality_reg4)
-
-
-
 
