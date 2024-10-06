@@ -1,0 +1,208 @@
+---
+title: "Poverty and Art at the State Level"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(here)
+library(tidyverse)
+library(kableExtra)
+library(usmap)
+library(ggpubr)
+
+# Read in Data Frames
+file_list <- list.files(pattern='*.rds', recursive = TRUE)
+rds_list <- file_list %>%
+  map(read_rds)
+
+arts_df <- as.data.frame(rds_list[1])
+census_percent_below <- as.data.frame(rds_list[2])
+census_total_below <- as.data.frame(rds_list[3])
+census_total_pop <- as.data.frame(rds_list[4])
+census_arts_percent_below <- as.data.frame(rds_list[5])
+census_arts_total_below <- as.data.frame(rds_list[6])
+census_arts_total <- as.data.frame(rds_list[7])
+
+
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = TRUE)
+```
+
+# Introduction
+
+This project utilizes poverty data from the U.S. Census database, coded:
+ACSST5Y2020.S1701. Additionally, I utilized data from 2020 National
+Endowment for the Arts Basic Survey:
+<https://www.arts.gov/impact/research/arts-data-profile-series/adp-32>.
+This data surveys art creation and consumption in its different forms
+across all the U.S. states.
+
+The goal of this project is to gain further experience cleaning,
+manipulating and analyzing data; and to present a general analysis of
+poverty in the US and how it relates to the state of "The Arts", broadly
+speaking.
+
+This README presents a broad survey of some of the analysis from this project. It
+is not supposed to be a formal analysis of the data sets, just a look at the data
+and some interesting visualizations.
+
+For a complete look at how I processed the data used in this project,
+please reference the R script in this projects folder.
+
+# Analysis and Data Visualizations
+
+#### Poverty rate by state (including Puerto Rico)
+
+```{r, echo=FALSE}
+# states with highest poverty rate
+census_arts_percent_below %>%
+  arrange(desc(population_for_whom_poverty_status_is_determined)) %>%
+  select(state, population_for_whom_poverty_status_is_determined) %>%
+  kable()
+```
+
+
+#### Percentage of people below poverty line who did not graduate high school
+```{r, echo=FALSE}
+#states with least highest high school graduate rates            
+census_arts_percent_below %>%
+  arrange(desc(less_than_high_school_graduate)) %>%
+  select(state, less_than_high_school_graduate) %>%
+  kable()
+```
+
+
+#### High school graduation rates
+```{r, echo=FALSE}
+#states with lowest high school graduation per estimated population
+census_total_pop %>%
+  mutate(non_highschool_per_population = 
+           (less_than_high_school_graduate/population_for_whom_poverty_status_is_determined),
+         .by = c(state,less_than_high_school_graduate,
+                 population_for_whom_poverty_status_is_determined),
+         .keep = "none") %>%
+  arrange(desc(non_highschool_per_population)) %>%
+  kable()
+```
+
+#### Poverty rates by race
+```{r echo=FALSE}
+#poverty rates by race
+census_percent_below %>%
+  select(state,white_alone,black_or_african_american_alone,
+         american_indian_and_alaska_native_alone,asian_alone,
+         native_hawaiian_and_other_pacific_islander_alone, some_other_race_alone, 
+         two_or_more_races,hispanic_or_latino_origin_of_any_race,
+         white_alone_not_hispanic_or_latino) %>%
+  kable()
+```
+
+#### Reading rates vs Poverty rates by state
+Some negative correlation when looking at poverty rates and reading rates by state.
+```{r, echo=FALSE}
+ggplot(census_arts_percent_below, 
+       aes(population_for_whom_poverty_status_is_determined,
+           percent_who_read_literature, na.remove = TRUE)) + 
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_continuous(labels = scales::percent, limits = c(NA,.20)) +
+  geom_point() + 
+  ggtitle("Reading vs Poverty by State") +
+  geom_smooth(method = "lm", se = FALSE) +
+  stat_cor(method = "pearson", label.x = .16, label.y = .60)
+```
+
+#### Percent of People Who Create Visual Art by State
+```{r, echo=FALSE}
+ggplot(arts_df, aes(state, percent_who_create_visual_art)) + 
+  geom_col(fill = "darkgreen") + scale_y_continuous(labels = scales::percent) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), 
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black")) + 
+  ggtitle("Percent of People Who Create Visual Art by State") + xlab("State") +
+  ylab("Percent who create visual art") 
+```
+
+
+#### Percent of People Who do Leather, Wood, Metal or Fabric Work
+```{r, echo=FALSE}
+ggplot(arts_df, aes(state, percent_do_leather_wood_metal_fabric_work)) + 
+  geom_col(fill = "darkgreen") + scale_y_continuous(labels = scales::percent) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), 
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black")) + 
+  ggtitle("Percent of People Who do Leather, Wood, Metal or Fabric Work") + xlab("State") +
+  ylab("")
+```
+
+#### Percent of People who Play an Instrument
+```{r, echo=FALSE}
+ggplot(arts_df, aes(state, percent_who_play_instrument)) + 
+  geom_col(fill = "darkgreen") + scale_y_continuous(labels = scales::percent) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), 
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black")) + 
+  ggtitle("Percent of People who Play an Instrument") + xlab("State") +
+  ylab("") 
+```
+
+#### The "Arts Score"
+Averaging across the different variable columns to create a score for each state based
+on participation and consumption of art. The higher the score the more art participation 
+and consuption. 
+```{r, echo=FALSE}
+# mean across columns - a kind of rough general arts participation rate metric
+# note that not all states have complete data values so they are omitted
+arts_df %>%
+  mutate(arts_score = rowMeans(arts_df[,(-1)])) %>%
+  select(c(state, arts_score)) %>%
+  arrange(desc(arts_score)) %>%
+  kable()
+```
+
+
+#### Map visulizations
+
+```{r, echo=FALSE}
+#Percentage determined as poor
+plot_usmap(data = census_arts_percent_below, 
+           values = "population_for_whom_poverty_status_is_determined", 
+           regions = "states", color = "darkblue") + 
+  scale_fill_continuous(low = "white", high = "darkblue", 
+                        name = "Percentage", 
+                        labels = scales::label_percent()) +
+  labs(title = "Poverty Rates by State") + 
+  theme(panel.background=element_blank())
+
+#Percentage determined as poor
+plot_usmap(data = census_arts_percent_below, 
+           values = "percent_who_go_to_art_exhibits", 
+           regions = "states", color = "darkblue") + 
+  scale_fill_continuous(low = "white", high = "darkblue", 
+                        name = "Percentage", 
+                        labels = scales::label_percent()) +
+  labs(title = "Percentage of Population Who Go to Art Exhibits") + 
+  theme(panel.background=element_blank())
+
+
+# Percentage who create visual art
+plot_usmap(data = census_arts_percent_below, 
+           values = "percent_who_create_visual_art", 
+           regions = "states", color = "darkblue") + 
+  scale_fill_continuous(low = "white", high = "darkblue", 
+                        name = "Percentage", 
+                        labels = scales::label_percent()) +
+  labs(title = "Percentage of Population who Create Visual Art") + 
+  theme(panel.background=element_blank())
+
+
+
+# Percentage who read literature
+plot_usmap(data = census_arts_percent_below, 
+           values = "percent_who_read_literature", 
+           regions = "states", color = "darkblue") + 
+  scale_fill_continuous(low = "white", high = "darkblue", 
+                        name = "Percentage", 
+                        labels = scales::label_percent()) +
+  labs(title = "Percentage Who Read Literature") + 
+  theme(panel.background=element_blank())
+```
+
