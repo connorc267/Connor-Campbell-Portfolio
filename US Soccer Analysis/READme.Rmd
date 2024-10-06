@@ -771,7 +771,7 @@ ggplot(data = mls_master %>% filter(`Total market value` < 70),
   theme_clean()+ scale_y_continuous(labels = scales::percent_format())+
   theme(plot.title = element_text(hjust = 0.5)) + 
   xlab(label = "Total Market Value (Millions of Euros)") + 
-  ylab(label = "% Of Stadium Filled on Average ") + 
+  ylab(label = "% of Stadium Filled on Average ") + 
   geom_smooth(method = "lm", se = FALSE)
 ```
 
@@ -788,7 +788,7 @@ ggplot(data = usl_master, aes(x = `Total market value`, y = `%_2023_Fill`)) +
   theme_clean()+ scale_y_continuous(labels = scales::percent_format())+
   theme(plot.title = element_text(hjust = 0.5)) + 
   xlab(label = "Total Market Value (Millions of Euros)") + 
-  ylab(label = "% Of Stadium Filled on Average ")
+  ylab(label = "% of Stadium Filled on Average ")
 ```
 
 This chart below illustrates the stark differences between the two leagues. All 
@@ -803,7 +803,7 @@ ggplot(data = Final, aes(x = `Total market value`, y = `%_2023_Fill`)) +
   theme_clean()+ scale_y_continuous(labels = scales::percent_format())+
   theme(plot.title = element_text(hjust = 0.5)) + 
   xlab(label = "Total Market Value (Millions of Euros)") + 
-  ylab(label = "% Of Stadium Filled on Average ")
+  ylab(label = "% of Stadium Filled on Average ")
 
 ```
 
@@ -820,7 +820,7 @@ ggplot(data = mls_master, aes(x = `Pts 2023`, y = `%_2023_Fill`)) +
   theme(plot.title = element_text(hjust = 0.5), panel.background 
         = element_rect(fill = "skyblue")) + 
   xlab(label = "2023 Total Pts") + 
-  ylab(label = "% Of Stadium Filled on Average")
+  ylab(label = "% of Stadium Filled on Average")
 ```
 
 

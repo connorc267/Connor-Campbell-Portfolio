@@ -279,38 +279,38 @@ stadium_MLS$Team <- gsub("NY Red Bulls",
 
 Giving us this table.
 
-| Stadium                    | Team                         | Location                                                                        | First MLS year in stadium | Capacity | Opened | Surface           | Field dimensions             | Coordinates                                                                                                                                                                                                                                                                                                                                                               | Roof type   | Soccer specific |
-|:---------------------------|:-----------------------------|:--------------------------------------------------------------------------------|--------------------------:|---------:|-------:|:------------------|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------|:----------------|
-| Allianz Field              | Minnesota United FC          | Saint Paul, Minnesota                                                           |                      2019 |    19400 |   2019 | Grass             | 115 yd × 75 yd(105 m × 69 m) | .mw-parser-output .geo-default,.mw-parser-output .geo-dms,.mw-parser-output .geo-dec{display:inline}.mw-parser-output .geo-nondefault,.mw-parser-output .geo-multi-punct,.mw-parser-output .geo-inline-hidden{display:none}.mw-parser-output .longitude,.mw-parser-output .latitude{white-space:nowrap}44°57′10″N 93°9′54″W﻿ / ﻿44.95278°N 93.16500°W﻿ / 44.95278; -93.16500 | Open        | Yes             |
-| America First Field        | Real Salt Lake               | Sandy, Utah                                                                     |                      2008 |    20213 |   2008 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 40°34′59″N 111°53′35″W﻿ / ﻿40.582923°N 111.893156°W﻿ / 40.582923; -111.893156﻿ (America First Field)                                                                                                                                                                                                                                                                          | Open        | Yes             |
-| Audi Field                 | D.C. United                  | Washington, D.C.                                                                |                      2018 |    20000 |   2018 | Grass             | 115 yd × 75 yd(105 m × 69 m) | 38°52′6″N 77°0′44″W﻿ / ﻿38.86833°N 77.01222°W﻿ / 38.86833; -77.01222﻿ (Audi Field)                                                                                                                                                                                                                                                                                            | Open        | Yes             |
-| Bank of America Stadium    | Charlotte FC                 | Charlotte, North Carolina                                                       |                      2022 |    38000 |   1996 | FieldTurf         | TBA                          | 35°13′33″N 80°51′10″W﻿ / ﻿35.22583°N 80.85278°W﻿ / 35.22583; -80.85278﻿ (Bank of America Stadium)                                                                                                                                                                                                                                                                             | Open        | No              |
-| BC Place ‡                 | Vancouver Whitecaps FC       | Vancouver, British Columbia                                                     |                      2011 |    22120 |   1983 | Polytan           | 117 yd × 75 yd(107 m × 69 m) | 49°16′36″N 123°6′43″W﻿ / ﻿49.27667°N 123.11194°W﻿ / 49.27667; -123.11194﻿ (BC Place)                                                                                                                                                                                                                                                                                          | Retractable | No              |
-| BMO Field                  | Toronto FC                   | Toronto, Ontario                                                                |                      2007 |    30991 |   2007 | Hybrid grass      |                              |                                                                                                                                                                                                                                                                                                                                                                           |             |                 |
-| (SISGrass)                 | 115 yd × 74 yd(105 m × 68 m) | 43°37′58″N 79°25′07″W﻿ / ﻿43.63278°N 79.41861°W﻿ / 43.63278; -79.41861﻿ (BMO Field) |                      Open |      Yes |        |                   |                              |                                                                                                                                                                                                                                                                                                                                                                           |             |                 |
-| BMO Stadium                | Los Angeles FC               | Los Angeles, California                                                         |                      2018 |    22000 |   2018 | Grass             | 115 yd × 75 yd(105 m × 69 m) | 34°00′47″N 118°17′6″W﻿ / ﻿34.01306°N 118.28500°W﻿ / 34.01306; -118.28500﻿ (BMO Stadium)                                                                                                                                                                                                                                                                                       | Open        | Yes             |
-| Chase Stadium              | Inter Miami CF               | Fort Lauderdale, Florida                                                        |                      2020 |    21550 |   2020 | Grass             | 115 yd × 75 yd(105 m × 69 m) | 26°11′35″N 80°9′40″W﻿ / ﻿26.19306°N 80.16111°W﻿ / 26.19306; -80.16111﻿ (DRV PNK Stadium)                                                                                                                                                                                                                                                                                      | Open        | Yes             |
-| Children’s Mercy Park      | Sporting Kansas City         | Kansas City, Kansas                                                             |                      2011 |    18467 |   2011 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 39°07′18″N 94°49′25″W﻿ / ﻿39.1218°N 94.8237°W﻿ / 39.1218; -94.8237﻿ (Children’s Mercy Park)                                                                                                                                                                                                                                                                                   | Open        | Yes             |
-| CityPark                   | St. Louis City SC            | St. Louis, Missouri                                                             |                      2023 |    22500 |   2022 | Grass             | 114 yd × 74 yd(104 m × 68 m) | 38°37′51.7″N 90°12′39.3″W﻿ / ﻿38.631028°N 90.210917°W﻿ / 38.631028; -90.210917﻿ (Citypark)                                                                                                                                                                                                                                                                                    | Open        | Yes             |
-| Dick’s Sporting Goods Park | Colorado Rapids              | Commerce City, Colorado                                                         |                      2007 |    18061 |   2007 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 39°48′20″N 104°53′31″W﻿ / ﻿39.80556°N 104.89194°W﻿ / 39.80556; -104.89194﻿ (Dick’s Sporting Goods Park)                                                                                                                                                                                                                                                                       | Open        | Yes             |
-| Dignity Health Sports Park | Los Angeles Galaxy           | Carson, California                                                              |                      2003 |    27000 |   2003 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 33°51′52″N 118°15′40″W﻿ / ﻿33.86444°N 118.26111°W﻿ / 33.86444; -118.26111﻿ (Dignity Health Sports Park)                                                                                                                                                                                                                                                                       | Open        | Yes             |
-| Gillette Stadium           | New England Revolution       | Foxborough, Massachusetts                                                       |                      2002 |    20000 |   2002 | FieldTurf         | 115 yd × 75 yd(105 m × 69 m) | 42°05′27.40″N 71°15′51.64″W﻿ / ﻿42.0909444°N 71.2643444°W﻿ / 42.0909444; -71.2643444﻿ (Gillette Stadium)                                                                                                                                                                                                                                                                      | Open        | No              |
-| Geodis Park                | Nashville SC                 | Nashville, Tennessee                                                            |                      2022 |    30000 |   2022 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 36°7′49″N 86°45′56″W﻿ / ﻿36.13028°N 86.76556°W﻿ / 36.13028; -86.76556﻿ (Geodis Park)                                                                                                                                                                                                                                                                                          | Open        | Yes             |
-| Inter&Co Stadium           | Orlando City SC              | Orlando, Florida                                                                |                      2017 |    25500 |   2017 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 28°37′27.83″N 81°23′20.53″W﻿ / ﻿28.6243972°N 81.3890361°W﻿ / 28.6243972; -81.3890361﻿ (Exploria Stadium)                                                                                                                                                                                                                                                                      | Open        | Yes             |
-| Lower.com Field            | Columbus Crew                | Columbus, Ohio                                                                  |                      2021 |    20371 |   2021 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 39°58′6.46″N 83°1′1.52″W﻿ / ﻿39.9684611°N 83.0170889°W﻿ / 39.9684611; -83.0170889﻿ (Lower.com Field)                                                                                                                                                                                                                                                                          | Open        | Yes             |
-| Lumen Field                | Seattle Sounders FC          | Seattle, Washington                                                             |                      2009 |    37722 |   2002 | FieldTurf         | 114 yd × 74 yd(104 m × 68 m) | 47°35′43″N 122°19′54″W﻿ / ﻿47.5952°N 122.3316°W﻿ / 47.5952; -122.3316﻿ (Lumen Field)                                                                                                                                                                                                                                                                                          | Open        | No              |
-| Mercedes-Benz Stadium ‡    | Atlanta United FC            | Atlanta, Georgia                                                                |                      2017 |    42500 |   2017 | FieldTurf         | 115 yd × 75 yd(105 m × 69 m) | 33°45′19.30″N 84°24′4.29″W﻿ / ﻿33.7553611°N 84.4011917°W﻿ / 33.7553611; -84.4011917﻿ (Mercedes-Benz Stadium)                                                                                                                                                                                                                                                                  | Retractable | No              |
-| PayPal Park                | San Jose Earthquakes         | San Jose, California                                                            |                      2015 |    18000 |   2015 | SISGrass (Hybrid) | 115 yd × 75 yd(105 m × 69 m) | 37°21′5″N 121°55′30″W﻿ / ﻿37.35139°N 121.92500°W﻿ / 37.35139; -121.92500﻿ (PayPal Park)                                                                                                                                                                                                                                                                                       | Open        | Yes             |
-| Providence Park            | Portland Timbers             | Portland, Oregon                                                                |                      2011 |    25218 |   1926 | FieldTurf         | 110 yd × 75 yd(101 m × 69 m) | 45°31′17″N 122°41′30″W﻿ / ﻿45.52139°N 122.69167°W﻿ / 45.52139; -122.69167﻿ (Providence Park)                                                                                                                                                                                                                                                                                  | Open        | Yes\[note 2\]   |
-| Q2 Stadium                 | Austin FC                    | Austin, Texas                                                                   |                      2021 |    20738 |   2021 | Grass             | 115 yd × 75 yd(105 m × 69 m) | 30°23′17.54″N 97°43′11.51″W﻿ / ﻿30.3882056°N 97.7198639°W﻿ / 30.3882056; -97.7198639﻿ (Q2 Stadium)                                                                                                                                                                                                                                                                            | Open        | Yes             |
-| Red Bull Arena             | New York Red Bulls           | Harrison, New Jersey                                                            |                      2010 |    25000 |   2010 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 40°44′12″N 74°9′1″W﻿ / ﻿40.73667°N 74.15028°W﻿ / 40.73667; -74.15028﻿ (Red Bull Arena)                                                                                                                                                                                                                                                                                        | Open        | Yes             |
-| Saputo Stadium             | CF Montréal                  | Montreal, Quebec                                                                |                      2012 |    19619 |   2008 | Grass             | 120 yd × 77 yd(110 m × 70 m) | 45°33′47″N 73°33′9″W﻿ / ﻿45.56306°N 73.55250°W﻿ / 45.56306; -73.55250﻿ (Saputo Stadium)                                                                                                                                                                                                                                                                                       | Open        | Yes             |
-| Shell Energy Stadium       | Houston Dynamo FC            | Houston, Texas                                                                  |                      2012 |    22039 |   2012 | Grass             | 115 yd × 73 yd(105 m × 67 m) | 29°45.132′N 95°21.144′W﻿ / ﻿29.752200°N 95.352400°W﻿ / 29.752200; -95.352400﻿ (BBVA Stadium)                                                                                                                                                                                                                                                                                  | Open        | Yes             |
-| Soldier Field              | Chicago Fire FC              | Chicago, Illinois                                                               |                      1998 |    24955 |   1924 | Grass             | 114 yd × 74 yd(104 m × 68 m) | 41°51′44″N 87°37′00″W﻿ / ﻿41.8623°N 87.6167°W﻿ / 41.8623; -87.6167﻿ (Soldier Field)                                                                                                                                                                                                                                                                                           | Open        | No              |
-| Subaru Park                | Philadelphia Union           | Chester, Pennsylvania                                                           |                      2010 |    18500 |   2010 | Grass             | 120 yd × 75 yd(110 m × 69 m) | 39°49′56″N 75°22′44″W﻿ / ﻿39.83222°N 75.37889°W﻿ / 39.83222; -75.37889﻿ (Subaru Park)                                                                                                                                                                                                                                                                                         | Open        | Yes             |
-| Toyota Stadium             | FC Dallas                    | Frisco, Texas                                                                   |                      2005 |    19096 |   2005 | Grass             | 117 yd × 74 yd(107 m × 68 m) | 33°9′16″N 96°50′7″W﻿ / ﻿33.15444°N 96.83528°W﻿ / 33.15444; -96.83528﻿ (Toyota Stadium)                                                                                                                                                                                                                                                                                        | Open        | Yes             |
-| TQL Stadium                | FC Cincinnati                | Cincinnati, Ohio                                                                |                      2021 |    26000 |   2021 | Hybrid grass      | 110 yd × 75 yd(101 m × 69 m) | 39°06′41″N 84°31′20″W﻿ / ﻿39.11139°N 84.52222°W﻿ / 39.11139; -84.52222﻿ (TQL Stadium)                                                                                                                                                                                                                                                                                         | Open        | Yes             |
-| Yankee Stadium             | New York City FC             | Bronx, New York                                                                 |                      2015 |    30321 |   2009 | Grass             | 110 yd × 70 yd(101 m × 64 m) | 40°49′45″N 73°55′35″W﻿ / ﻿40.82917°N 73.92639°W﻿ / 40.82917; -73.92639﻿ (Yankee Stadium)                                                                                                                                                                                                                                                                                      | Open        | No              |
+| Stadium | Team | Location | First MLS year in stadium | Capacity | Opened | Surface | Field dimensions | Coordinates | Roof type | Soccer specific |
+|:---|:---|:---|---:|---:|---:|:---|:---|:---|:---|:---|
+| Allianz Field | Minnesota United FC | Saint Paul, Minnesota | 2019 | 19400 | 2019 | Grass | 115 yd × 75 yd(105 m × 69 m) | .mw-parser-output .geo-default,.mw-parser-output .geo-dms,.mw-parser-output .geo-dec{display:inline}.mw-parser-output .geo-nondefault,.mw-parser-output .geo-multi-punct,.mw-parser-output .geo-inline-hidden{display:none}.mw-parser-output .longitude,.mw-parser-output .latitude{white-space:nowrap}44°57′10″N 93°9′54″W﻿ / ﻿44.95278°N 93.16500°W﻿ / 44.95278; -93.16500 | Open | Yes |
+| America First Field | Real Salt Lake | Sandy, Utah | 2008 | 20213 | 2008 | Grass | 120 yd × 75 yd(110 m × 69 m) | 40°34′59″N 111°53′35″W﻿ / ﻿40.582923°N 111.893156°W﻿ / 40.582923; -111.893156﻿ (America First Field) | Open | Yes |
+| Audi Field | D.C. United | Washington, D.C. | 2018 | 20000 | 2018 | Grass | 115 yd × 75 yd(105 m × 69 m) | 38°52′6″N 77°0′44″W﻿ / ﻿38.86833°N 77.01222°W﻿ / 38.86833; -77.01222﻿ (Audi Field) | Open | Yes |
+| Bank of America Stadium | Charlotte FC | Charlotte, North Carolina | 2022 | 38000 | 1996 | FieldTurf | TBA | 35°13′33″N 80°51′10″W﻿ / ﻿35.22583°N 80.85278°W﻿ / 35.22583; -80.85278﻿ (Bank of America Stadium) | Open | No |
+| BC Place ‡ | Vancouver Whitecaps FC | Vancouver, British Columbia | 2011 | 22120 | 1983 | Polytan | 117 yd × 75 yd(107 m × 69 m) | 49°16′36″N 123°6′43″W﻿ / ﻿49.27667°N 123.11194°W﻿ / 49.27667; -123.11194﻿ (BC Place) | Retractable | No |
+| BMO Field | Toronto FC | Toronto, Ontario | 2007 | 30991 | 2007 | Hybrid grass |  |  |  |  |
+| (SISGrass) | 115 yd × 74 yd(105 m × 68 m) | 43°37′58″N 79°25′07″W﻿ / ﻿43.63278°N 79.41861°W﻿ / 43.63278; -79.41861﻿ (BMO Field) | Open | Yes |  |  |  |  |  |  |
+| BMO Stadium | Los Angeles FC | Los Angeles, California | 2018 | 22000 | 2018 | Grass | 115 yd × 75 yd(105 m × 69 m) | 34°00′47″N 118°17′6″W﻿ / ﻿34.01306°N 118.28500°W﻿ / 34.01306; -118.28500﻿ (BMO Stadium) | Open | Yes |
+| Chase Stadium | Inter Miami CF | Fort Lauderdale, Florida | 2020 | 21550 | 2020 | Grass | 115 yd × 75 yd(105 m × 69 m) | 26°11′35″N 80°9′40″W﻿ / ﻿26.19306°N 80.16111°W﻿ / 26.19306; -80.16111﻿ (DRV PNK Stadium) | Open | Yes |
+| Children’s Mercy Park | Sporting Kansas City | Kansas City, Kansas | 2011 | 18467 | 2011 | Grass | 120 yd × 75 yd(110 m × 69 m) | 39°07′18″N 94°49′25″W﻿ / ﻿39.1218°N 94.8237°W﻿ / 39.1218; -94.8237﻿ (Children’s Mercy Park) | Open | Yes |
+| CityPark | St. Louis City SC | St. Louis, Missouri | 2023 | 22500 | 2022 | Grass | 114 yd × 74 yd(104 m × 68 m) | 38°37′51.7″N 90°12′39.3″W﻿ / ﻿38.631028°N 90.210917°W﻿ / 38.631028; -90.210917﻿ (Citypark) | Open | Yes |
+| Dick’s Sporting Goods Park | Colorado Rapids | Commerce City, Colorado | 2007 | 18061 | 2007 | Grass | 120 yd × 75 yd(110 m × 69 m) | 39°48′20″N 104°53′31″W﻿ / ﻿39.80556°N 104.89194°W﻿ / 39.80556; -104.89194﻿ (Dick’s Sporting Goods Park) | Open | Yes |
+| Dignity Health Sports Park | Los Angeles Galaxy | Carson, California | 2003 | 27000 | 2003 | Grass | 120 yd × 75 yd(110 m × 69 m) | 33°51′52″N 118°15′40″W﻿ / ﻿33.86444°N 118.26111°W﻿ / 33.86444; -118.26111﻿ (Dignity Health Sports Park) | Open | Yes |
+| Gillette Stadium | New England Revolution | Foxborough, Massachusetts | 2002 | 20000 | 2002 | FieldTurf | 115 yd × 75 yd(105 m × 69 m) | 42°05′27.40″N 71°15′51.64″W﻿ / ﻿42.0909444°N 71.2643444°W﻿ / 42.0909444; -71.2643444﻿ (Gillette Stadium) | Open | No |
+| Geodis Park | Nashville SC | Nashville, Tennessee | 2022 | 30000 | 2022 | Grass | 120 yd × 75 yd(110 m × 69 m) | 36°7′49″N 86°45′56″W﻿ / ﻿36.13028°N 86.76556°W﻿ / 36.13028; -86.76556﻿ (Geodis Park) | Open | Yes |
+| Inter&Co Stadium | Orlando City SC | Orlando, Florida | 2017 | 25500 | 2017 | Grass | 120 yd × 75 yd(110 m × 69 m) | 28°37′27.83″N 81°23′20.53″W﻿ / ﻿28.6243972°N 81.3890361°W﻿ / 28.6243972; -81.3890361﻿ (Exploria Stadium) | Open | Yes |
+| Lower.com Field | Columbus Crew | Columbus, Ohio | 2021 | 20371 | 2021 | Grass | 120 yd × 75 yd(110 m × 69 m) | 39°58′6.46″N 83°1′1.52″W﻿ / ﻿39.9684611°N 83.0170889°W﻿ / 39.9684611; -83.0170889﻿ (Lower.com Field) | Open | Yes |
+| Lumen Field | Seattle Sounders FC | Seattle, Washington | 2009 | 37722 | 2002 | FieldTurf | 114 yd × 74 yd(104 m × 68 m) | 47°35′43″N 122°19′54″W﻿ / ﻿47.5952°N 122.3316°W﻿ / 47.5952; -122.3316﻿ (Lumen Field) | Open | No |
+| Mercedes-Benz Stadium ‡ | Atlanta United FC | Atlanta, Georgia | 2017 | 42500 | 2017 | FieldTurf | 115 yd × 75 yd(105 m × 69 m) | 33°45′19.30″N 84°24′4.29″W﻿ / ﻿33.7553611°N 84.4011917°W﻿ / 33.7553611; -84.4011917﻿ (Mercedes-Benz Stadium) | Retractable | No |
+| PayPal Park | San Jose Earthquakes | San Jose, California | 2015 | 18000 | 2015 | SISGrass (Hybrid) | 115 yd × 75 yd(105 m × 69 m) | 37°21′5″N 121°55′30″W﻿ / ﻿37.35139°N 121.92500°W﻿ / 37.35139; -121.92500﻿ (PayPal Park) | Open | Yes |
+| Providence Park | Portland Timbers | Portland, Oregon | 2011 | 25218 | 1926 | FieldTurf | 110 yd × 75 yd(101 m × 69 m) | 45°31′17″N 122°41′30″W﻿ / ﻿45.52139°N 122.69167°W﻿ / 45.52139; -122.69167﻿ (Providence Park) | Open | Yes\[note 2\] |
+| Q2 Stadium | Austin FC | Austin, Texas | 2021 | 20738 | 2021 | Grass | 115 yd × 75 yd(105 m × 69 m) | 30°23′17.54″N 97°43′11.51″W﻿ / ﻿30.3882056°N 97.7198639°W﻿ / 30.3882056; -97.7198639﻿ (Q2 Stadium) | Open | Yes |
+| Red Bull Arena | New York Red Bulls | Harrison, New Jersey | 2010 | 25000 | 2010 | Grass | 120 yd × 75 yd(110 m × 69 m) | 40°44′12″N 74°9′1″W﻿ / ﻿40.73667°N 74.15028°W﻿ / 40.73667; -74.15028﻿ (Red Bull Arena) | Open | Yes |
+| Saputo Stadium | CF Montréal | Montreal, Quebec | 2012 | 19619 | 2008 | Grass | 120 yd × 77 yd(110 m × 70 m) | 45°33′47″N 73°33′9″W﻿ / ﻿45.56306°N 73.55250°W﻿ / 45.56306; -73.55250﻿ (Saputo Stadium) | Open | Yes |
+| Shell Energy Stadium | Houston Dynamo FC | Houston, Texas | 2012 | 22039 | 2012 | Grass | 115 yd × 73 yd(105 m × 67 m) | 29°45.132′N 95°21.144′W﻿ / ﻿29.752200°N 95.352400°W﻿ / 29.752200; -95.352400﻿ (BBVA Stadium) | Open | Yes |
+| Soldier Field | Chicago Fire FC | Chicago, Illinois | 1998 | 24955 | 1924 | Grass | 114 yd × 74 yd(104 m × 68 m) | 41°51′44″N 87°37′00″W﻿ / ﻿41.8623°N 87.6167°W﻿ / 41.8623; -87.6167﻿ (Soldier Field) | Open | No |
+| Subaru Park | Philadelphia Union | Chester, Pennsylvania | 2010 | 18500 | 2010 | Grass | 120 yd × 75 yd(110 m × 69 m) | 39°49′56″N 75°22′44″W﻿ / ﻿39.83222°N 75.37889°W﻿ / 39.83222; -75.37889﻿ (Subaru Park) | Open | Yes |
+| Toyota Stadium | FC Dallas | Frisco, Texas | 2005 | 19096 | 2005 | Grass | 117 yd × 74 yd(107 m × 68 m) | 33°9′16″N 96°50′7″W﻿ / ﻿33.15444°N 96.83528°W﻿ / 33.15444; -96.83528﻿ (Toyota Stadium) | Open | Yes |
+| TQL Stadium | FC Cincinnati | Cincinnati, Ohio | 2021 | 26000 | 2021 | Hybrid grass | 110 yd × 75 yd(101 m × 69 m) | 39°06′41″N 84°31′20″W﻿ / ﻿39.11139°N 84.52222°W﻿ / 39.11139; -84.52222﻿ (TQL Stadium) | Open | Yes |
+| Yankee Stadium | New York City FC | Bronx, New York | 2015 | 30321 | 2009 | Grass | 110 yd × 70 yd(101 m × 64 m) | 40°49′45″N 73°55′35″W﻿ / ﻿40.82917°N 73.92639°W﻿ / 40.82917; -73.92639﻿ (Yankee Stadium) | Open | No |
 
 The same steps were then taken for the USL Championship stadium data
 also taken from Wikipedia:
@@ -338,32 +338,32 @@ usl_stadium$Team <- gsub("Rio Grande Valley FC Toros", "Rio Grande Valley FC",
                  usl_stadium$Team)
 ```
 
-| Team                            | Stadium                                        | Capacity |
-|:--------------------------------|:-----------------------------------------------|---------:|
-| Birmingham Legion FC            | Protective Stadium                             |    47000 |
-| Charleston Battery              | Patriots Point Soccer Complex                  |     5000 |
-| Colorado Springs Switchbacks FC | Weidner Field                                  |     8000 |
-| Detroit City FC                 | Keyworth Stadium                               |     7933 |
-| FC Tulsa                        | ONEOK Field                                    |     7833 |
-| El Paso Locomotive FC           | Southwest University Park                      |     9500 |
-| Hartford Athletic               | Trinity Health Stadium                         |     5500 |
-| Indy Eleven                     | IU Michael A. Carroll Track & Soccer Stadium   |    10524 |
-| Las Vegas Lights FC             | Cashman Field                                  |     9334 |
-| Loudoun United FC               | Segra Field                                    |     5000 |
-| Louisville City FC              | Lynn Family Stadium                            |    15304 |
-| Memphis 901 FC                  | AutoZone Park                                  |    10000 |
-| Miami FC                        | Riccardo Silva Stadium                         |    25000 |
-| Monterey Bay FC                 | Cardinale Stadium                              |     6000 |
-| New Mexico United               | Rio Grande Credit Union Field at Isotopes Park |    13500 |
-| Oakland Roots SC                | Pioneer Stadium                                |     5000 |
-| Orange County SC                | Championship Soccer Stadium                    |     5000 |
-| Phoenix Rising FC               | Phoenix Rising Soccer Stadium                  |    10000 |
-| Pittsburgh Riverhounds SC       | Highmark Stadium                               |     5000 |
-| Rio Grande Valley FC            | H-E-B Park                                     |     9400 |
-| Sacramento Republic FC          | Heart Health Park                              |    11569 |
-| San Antonio FC                  | Toyota Field                                   |     8296 |
-| San Diego Loyal SC              | Torero Stadium                                 |     6000 |
-| Tampa Bay Rowdies               | Al Lang Stadium                                |     7227 |
+| Team | Stadium | Capacity |
+|:---|:---|---:|
+| Birmingham Legion FC | Protective Stadium | 47000 |
+| Charleston Battery | Patriots Point Soccer Complex | 5000 |
+| Colorado Springs Switchbacks FC | Weidner Field | 8000 |
+| Detroit City FC | Keyworth Stadium | 7933 |
+| FC Tulsa | ONEOK Field | 7833 |
+| El Paso Locomotive FC | Southwest University Park | 9500 |
+| Hartford Athletic | Trinity Health Stadium | 5500 |
+| Indy Eleven | IU Michael A. Carroll Track & Soccer Stadium | 10524 |
+| Las Vegas Lights FC | Cashman Field | 9334 |
+| Loudoun United FC | Segra Field | 5000 |
+| Louisville City FC | Lynn Family Stadium | 15304 |
+| Memphis 901 FC | AutoZone Park | 10000 |
+| Miami FC | Riccardo Silva Stadium | 25000 |
+| Monterey Bay FC | Cardinale Stadium | 6000 |
+| New Mexico United | Rio Grande Credit Union Field at Isotopes Park | 13500 |
+| Oakland Roots SC | Pioneer Stadium | 5000 |
+| Orange County SC | Championship Soccer Stadium | 5000 |
+| Phoenix Rising FC | Phoenix Rising Soccer Stadium | 10000 |
+| Pittsburgh Riverhounds SC | Highmark Stadium | 5000 |
+| Rio Grande Valley FC | H-E-B Park | 9400 |
+| Sacramento Republic FC | Heart Health Park | 11569 |
+| San Antonio FC | Toyota Field | 8296 |
+| San Diego Loyal SC | Torero Stadium | 6000 |
+| Tampa Bay Rowdies | Al Lang Stadium | 7227 |
 
 ## Joining both the MLS and USL data sets
 
@@ -400,60 +400,60 @@ leagues_master <- leagues_master %>%
 
 Here is the table with the most recent additions:
 
-| Teams                           | Average | Totals | Games | 2022 Average |   YOY | Stadium                                        | Capacity | %\_2023_Fill | %\_2022_Fill |
-|:--------------------------------|--------:|-------:|------:|-------------:|------:|:-----------------------------------------------|---------:|-------------:|-------------:|
-| Sacramento Republic FC          |   10627 | 180665 |    17 |         9876 |  0.08 | Heart Health Park                              |    11569 |    0.9185755 |    0.8536606 |
-| Louisville City FC              |   10547 | 179299 |    17 |        10465 |  0.01 | Lynn Family Stadium                            |    15304 |    0.6891662 |    0.6838082 |
-| Indy Eleven                     |    9709 | 155349 |    16 |         8285 |  0.17 | IU Michael A. Carroll Track & Soccer Stadium   |    10524 |    0.9225580 |    0.7872482 |
-| New Mexico United               |    9619 | 163518 |    17 |        10724 | -0.10 | Rio Grande Credit Union Field at Isotopes Park |    13500 |    0.7125185 |    0.7943704 |
-| Colorado Springs Switchbacks FC |    7753 | 124044 |    16 |         7199 |  0.08 | Weidner Field                                  |     8000 |    0.9691250 |    0.8998750 |
-| Phoenix Rising FC               |    7409 |  29634 |     4 |         6401 |  0.16 | Phoenix Rising Soccer Stadium                  |    10000 |    0.7409000 |    0.6401000 |
-| San Antonio FC                  |    7325 | 124522 |    17 |         5980 |  0.22 | Toyota Field                                   |     8296 |    0.8829556 |    0.7208293 |
-| El Paso Locomotive FC           |    6590 | 112038 |    17 |         6517 |  0.01 | Southwest University Park                      |     9500 |    0.6936842 |    0.6860000 |
-| Detroit City FC                 |    6032 | 102544 |    17 |         6118 | -0.01 | Keyworth Stadium                               |     7933 |    0.7603681 |    0.7712089 |
-| Tampa Bay Rowdies               |    5984 |  77797 |    13 |         5148 |  0.16 | Al Lang Stadium                                |     7227 |    0.8280061 |    0.7123288 |
-| Birmingham Legion FC            |    5091 |  20362 |     4 |         5920 | -0.14 | Protective Stadium                             |    47000 |    0.1083191 |    0.1259574 |
-| Pittsburgh Riverhounds          |    5073 |  76095 |    15 |         3934 |  0.29 | Highmark Stadium                               |     5000 |    1.0146000 |    0.7868000 |
-| Hartford Athletic               |    4882 |  73224 |    15 |         5178 | -0.06 | Trinity Health Stadium                         |     5500 |    0.8876364 |    0.9414545 |
-| San Diego Loyal                 |    4754 |  71309 |    15 |         4519 |  0.05 | Torero Stadium                                 |     6000 |    0.7923333 |    0.7531667 |
-| Rio Grande Valley FC            |    4506 |  72095 |    16 |         4074 |  0.11 | H-E-B Park                                     |     9400 |    0.4793617 |    0.4334043 |
-| Orange County SC                |    4411 |  70568 |    16 |         4230 |  0.04 | Championship Soccer Stadium                    |     5000 |    0.8822000 |    0.8460000 |
-| FC Tulsa                        |    4320 |  73443 |    17 |         4044 |  0.07 | ONEOK Field                                    |     7833 |    0.5515128 |    0.5162773 |
-| Monterey Bay FC                 |    3963 |  67378 |    17 |         3683 |  0.08 | Cardinale Stadium                              |     6000 |    0.6605000 |    0.6138333 |
-| Oakland Roots SC                |    3894 |  66196 |    17 |         4611 | -0.16 | Pioneer Stadium                                |     5000 |    0.7788000 |    0.9222000 |
-| Memphis 901 FC                  |    3344 |  33439 |    10 |         3683 | -0.09 | AutoZone Park                                  |    10000 |    0.3344000 |    0.3683000 |
-| Charleston Battery              |    3113 |  52919 |    17 |         2797 |  0.11 | Patriots Point Soccer Complex                  |     5000 |    0.6226000 |    0.5594000 |
-| Loudoun United FC               |    2664 |  45288 |    17 |         1583 |  0.68 | Segra Field                                    |     5000 |    0.5328000 |    0.3166000 |
-| Miami FC                        |    1432 |  24340 |    17 |         1162 |  0.23 | Riccardo Silva Stadium                         |    25000 |    0.0572800 |    0.0464800 |
-| Atlanta United FC               |   47526 | 807947 |    17 |        41116 |  0.16 | Mercedes-Benz Stadium ‡                        |    42500 |    1.1182588 |    0.9674353 |
-| Charlotte FC                    |   35544 | 604246 |    17 |        35260 |  0.01 | Bank of America Stadium                        |    38000 |    0.9353684 |    0.9278947 |
-| Seattle Sounders                |   32161 | 546744 |    17 |        33607 | -0.04 | Lumen Field                                    |    37722 |    0.8525794 |    0.8909125 |
-| Nashville SC                    |   28257 | 480370 |    17 |        27554 |  0.03 | Geodis Park                                    |    30000 |    0.9419000 |    0.9184667 |
-| FC Cincinnati                   |   25367 | 431237 |    17 |        22487 |  0.13 | TQL Stadium                                    |    26000 |    0.9756538 |    0.8648846 |
-| Toronto FC                      |   25310 | 430263 |    17 |        25423 |  0.00 | BMO Field                                      |    30991 |    0.8166887 |    0.8203349 |
-| Los Angeles Galaxy              |   24106 | 409794 |    17 |        22841 |  0.06 | Dignity Health Sports Park                     |    27000 |    0.8928148 |    0.8459630 |
-| New England Revolution          |   23940 | 406981 |    17 |        20319 |  0.18 | Gillette Stadium                               |    20000 |    1.1970000 |    1.0159500 |
-| Portland Timbers                |   23103 | 392744 |    17 |        23841 | -0.03 | Providence Park                                |    25218 |    0.9161313 |    0.9453961 |
-| St. Louis City SC               |   22423 | 381191 |    17 |           NA |    NA | CityPark                                       |    22500 |    0.9965778 |           NA |
-| Los Angeles FC                  |   22155 | 376643 |    17 |        22090 |  0.00 | BMO Stadium                                    |    22000 |    1.0070455 |    1.0040909 |
-| Austin FC                       |   20738 | 352546 |    17 |        20738 |  0.00 | Q2 Stadium                                     |    20738 |    1.0000000 |    1.0000000 |
-| Orlando City SC                 |   20590 | 350023 |    17 |        17261 |  0.19 | Inter&Co Stadium                               |    25500 |    0.8074510 |    0.6769020 |
-| Columbus Crew                   |   20314 | 345338 |    17 |        19237 |  0.06 | Lower.com Field                                |    20371 |    0.9972019 |    0.9443326 |
-| Minnesota United                |   19568 | 332659 |    17 |        19555 |  0.00 | Allianz Field                                  |    19400 |    1.0086598 |    1.0079897 |
-| New York City FC                |   19477 | 331109 |    17 |        17180 |  0.13 | Yankee Stadium                                 |    30321 |    0.6423601 |    0.5666040 |
-| Real Salt Lake                  |   19429 | 330290 |    17 |        20470 | -0.05 | America First Field                            |    20213 |    0.9612131 |    1.0127146 |
-| Philadelphia Union              |   18907 | 321416 |    17 |        18126 |  0.04 | Subaru Park                                    |    18500 |    1.0220000 |    0.9797838 |
-| Sporting Kansas City            |   18616 | 316474 |    17 |        18365 |  0.01 | Children’s Mercy Park                          |    18467 |    1.0080684 |    0.9944766 |
-| San Jose Earthquakes            |   18412 | 313003 |    17 |        15260 |  0.21 | PayPal Park                                    |    18000 |    1.0228889 |    0.8477778 |
-| New York Red Bulls              |   18246 | 310190 |    17 |        17002 |  0.07 | Red Bull Arena                                 |    25000 |    0.7298400 |    0.6800800 |
-| FC Dallas                       |   18239 | 310065 |    17 |        17469 |  0.04 | Toyota Stadium                                 |    19096 |    0.9551215 |    0.9147989 |
-| Chicago Fire                    |   18175 | 308975 |    17 |        15848 |  0.15 | Soldier Field                                  |    24955 |    0.7283110 |    0.6350631 |
-| Inter Miami CF                  |   17579 | 281257 |    16 |        12637 |  0.39 | Chase Stadium                                  |    21550 |    0.8157309 |    0.5864037 |
-| CF Montreal                     |   17562 | 298556 |    17 |        15905 |  0.10 | Saputo Stadium                                 |    19619 |    0.8951527 |    0.8106937 |
-| D.C. United                     |   17540 | 298185 |    17 |        16256 |  0.08 | Audi Field                                     |    20000 |    0.8770000 |    0.8128000 |
-| Vancouver Whitecaps             |   16745 | 284661 |    17 |        16399 |  0.02 | BC Place ‡                                     |    22120 |    0.7570072 |    0.7413653 |
-| Colorado Rapids                 |   15409 | 261953 |    17 |        14473 |  0.06 | Dick’s Sporting Goods Park                     |    18061 |    0.8531643 |    0.8013399 |
-| Houston Dynamo                  |   15027 | 255465 |    17 |        16426 | -0.09 | Shell Energy Stadium                           |    22039 |    0.6818367 |    0.7453151 |
+| Teams | Average | Totals | Games | 2022 Average | YOY | Stadium | Capacity | %\_2023_Fill | %\_2022_Fill |
+|:---|---:|---:|---:|---:|---:|:---|---:|---:|---:|
+| Sacramento Republic FC | 10627 | 180665 | 17 | 9876 | 0.08 | Heart Health Park | 11569 | 0.9185755 | 0.8536606 |
+| Louisville City FC | 10547 | 179299 | 17 | 10465 | 0.01 | Lynn Family Stadium | 15304 | 0.6891662 | 0.6838082 |
+| Indy Eleven | 9709 | 155349 | 16 | 8285 | 0.17 | IU Michael A. Carroll Track & Soccer Stadium | 10524 | 0.9225580 | 0.7872482 |
+| New Mexico United | 9619 | 163518 | 17 | 10724 | -0.10 | Rio Grande Credit Union Field at Isotopes Park | 13500 | 0.7125185 | 0.7943704 |
+| Colorado Springs Switchbacks FC | 7753 | 124044 | 16 | 7199 | 0.08 | Weidner Field | 8000 | 0.9691250 | 0.8998750 |
+| Phoenix Rising FC | 7409 | 29634 | 4 | 6401 | 0.16 | Phoenix Rising Soccer Stadium | 10000 | 0.7409000 | 0.6401000 |
+| San Antonio FC | 7325 | 124522 | 17 | 5980 | 0.22 | Toyota Field | 8296 | 0.8829556 | 0.7208293 |
+| El Paso Locomotive FC | 6590 | 112038 | 17 | 6517 | 0.01 | Southwest University Park | 9500 | 0.6936842 | 0.6860000 |
+| Detroit City FC | 6032 | 102544 | 17 | 6118 | -0.01 | Keyworth Stadium | 7933 | 0.7603681 | 0.7712089 |
+| Tampa Bay Rowdies | 5984 | 77797 | 13 | 5148 | 0.16 | Al Lang Stadium | 7227 | 0.8280061 | 0.7123288 |
+| Birmingham Legion FC | 5091 | 20362 | 4 | 5920 | -0.14 | Protective Stadium | 47000 | 0.1083191 | 0.1259574 |
+| Pittsburgh Riverhounds | 5073 | 76095 | 15 | 3934 | 0.29 | Highmark Stadium | 5000 | 1.0146000 | 0.7868000 |
+| Hartford Athletic | 4882 | 73224 | 15 | 5178 | -0.06 | Trinity Health Stadium | 5500 | 0.8876364 | 0.9414545 |
+| San Diego Loyal | 4754 | 71309 | 15 | 4519 | 0.05 | Torero Stadium | 6000 | 0.7923333 | 0.7531667 |
+| Rio Grande Valley FC | 4506 | 72095 | 16 | 4074 | 0.11 | H-E-B Park | 9400 | 0.4793617 | 0.4334043 |
+| Orange County SC | 4411 | 70568 | 16 | 4230 | 0.04 | Championship Soccer Stadium | 5000 | 0.8822000 | 0.8460000 |
+| FC Tulsa | 4320 | 73443 | 17 | 4044 | 0.07 | ONEOK Field | 7833 | 0.5515128 | 0.5162773 |
+| Monterey Bay FC | 3963 | 67378 | 17 | 3683 | 0.08 | Cardinale Stadium | 6000 | 0.6605000 | 0.6138333 |
+| Oakland Roots SC | 3894 | 66196 | 17 | 4611 | -0.16 | Pioneer Stadium | 5000 | 0.7788000 | 0.9222000 |
+| Memphis 901 FC | 3344 | 33439 | 10 | 3683 | -0.09 | AutoZone Park | 10000 | 0.3344000 | 0.3683000 |
+| Charleston Battery | 3113 | 52919 | 17 | 2797 | 0.11 | Patriots Point Soccer Complex | 5000 | 0.6226000 | 0.5594000 |
+| Loudoun United FC | 2664 | 45288 | 17 | 1583 | 0.68 | Segra Field | 5000 | 0.5328000 | 0.3166000 |
+| Miami FC | 1432 | 24340 | 17 | 1162 | 0.23 | Riccardo Silva Stadium | 25000 | 0.0572800 | 0.0464800 |
+| Atlanta United FC | 47526 | 807947 | 17 | 41116 | 0.16 | Mercedes-Benz Stadium ‡ | 42500 | 1.1182588 | 0.9674353 |
+| Charlotte FC | 35544 | 604246 | 17 | 35260 | 0.01 | Bank of America Stadium | 38000 | 0.9353684 | 0.9278947 |
+| Seattle Sounders | 32161 | 546744 | 17 | 33607 | -0.04 | Lumen Field | 37722 | 0.8525794 | 0.8909125 |
+| Nashville SC | 28257 | 480370 | 17 | 27554 | 0.03 | Geodis Park | 30000 | 0.9419000 | 0.9184667 |
+| FC Cincinnati | 25367 | 431237 | 17 | 22487 | 0.13 | TQL Stadium | 26000 | 0.9756538 | 0.8648846 |
+| Toronto FC | 25310 | 430263 | 17 | 25423 | 0.00 | BMO Field | 30991 | 0.8166887 | 0.8203349 |
+| Los Angeles Galaxy | 24106 | 409794 | 17 | 22841 | 0.06 | Dignity Health Sports Park | 27000 | 0.8928148 | 0.8459630 |
+| New England Revolution | 23940 | 406981 | 17 | 20319 | 0.18 | Gillette Stadium | 20000 | 1.1970000 | 1.0159500 |
+| Portland Timbers | 23103 | 392744 | 17 | 23841 | -0.03 | Providence Park | 25218 | 0.9161313 | 0.9453961 |
+| St. Louis City SC | 22423 | 381191 | 17 | NA | NA | CityPark | 22500 | 0.9965778 | NA |
+| Los Angeles FC | 22155 | 376643 | 17 | 22090 | 0.00 | BMO Stadium | 22000 | 1.0070455 | 1.0040909 |
+| Austin FC | 20738 | 352546 | 17 | 20738 | 0.00 | Q2 Stadium | 20738 | 1.0000000 | 1.0000000 |
+| Orlando City SC | 20590 | 350023 | 17 | 17261 | 0.19 | Inter&Co Stadium | 25500 | 0.8074510 | 0.6769020 |
+| Columbus Crew | 20314 | 345338 | 17 | 19237 | 0.06 | Lower.com Field | 20371 | 0.9972019 | 0.9443326 |
+| Minnesota United | 19568 | 332659 | 17 | 19555 | 0.00 | Allianz Field | 19400 | 1.0086598 | 1.0079897 |
+| New York City FC | 19477 | 331109 | 17 | 17180 | 0.13 | Yankee Stadium | 30321 | 0.6423601 | 0.5666040 |
+| Real Salt Lake | 19429 | 330290 | 17 | 20470 | -0.05 | America First Field | 20213 | 0.9612131 | 1.0127146 |
+| Philadelphia Union | 18907 | 321416 | 17 | 18126 | 0.04 | Subaru Park | 18500 | 1.0220000 | 0.9797838 |
+| Sporting Kansas City | 18616 | 316474 | 17 | 18365 | 0.01 | Children’s Mercy Park | 18467 | 1.0080684 | 0.9944766 |
+| San Jose Earthquakes | 18412 | 313003 | 17 | 15260 | 0.21 | PayPal Park | 18000 | 1.0228889 | 0.8477778 |
+| New York Red Bulls | 18246 | 310190 | 17 | 17002 | 0.07 | Red Bull Arena | 25000 | 0.7298400 | 0.6800800 |
+| FC Dallas | 18239 | 310065 | 17 | 17469 | 0.04 | Toyota Stadium | 19096 | 0.9551215 | 0.9147989 |
+| Chicago Fire | 18175 | 308975 | 17 | 15848 | 0.15 | Soldier Field | 24955 | 0.7283110 | 0.6350631 |
+| Inter Miami CF | 17579 | 281257 | 16 | 12637 | 0.39 | Chase Stadium | 21550 | 0.8157309 | 0.5864037 |
+| CF Montreal | 17562 | 298556 | 17 | 15905 | 0.10 | Saputo Stadium | 19619 | 0.8951527 | 0.8106937 |
+| D.C. United | 17540 | 298185 | 17 | 16256 | 0.08 | Audi Field | 20000 | 0.8770000 | 0.8128000 |
+| Vancouver Whitecaps | 16745 | 284661 | 17 | 16399 | 0.02 | BC Place ‡ | 22120 | 0.7570072 | 0.7413653 |
+| Colorado Rapids | 15409 | 261953 | 17 | 14473 | 0.06 | Dick’s Sporting Goods Park | 18061 | 0.8531643 | 0.8013399 |
+| Houston Dynamo | 15027 | 255465 | 17 | 16426 | -0.09 | Shell Energy Stadium | 22039 | 0.6818367 | 0.7453151 |
 
 I also made separate data frames for both the MLS and USL. This will
 allow us to analyze the leagues separately later on.
@@ -654,113 +654,113 @@ Final <- rename(.data = Final, Teams = Teams.x)
 
 Here is the DF with the points variable added.
 
-| Teams                           | Average | Totals | Games | 2022 Average |   YOY | Stadium                                        | Capacity | %\_2023_Fill | %\_2022_Fill | City             | State            | 2022 Pts |
-|:--------------------------------|--------:|-------:|------:|-------------:|------:|:-----------------------------------------------|---------:|-------------:|-------------:|:-----------------|:-----------------|---------:|
-| Sacramento Republic FC          |   10627 | 180665 |    17 |         9876 |  0.08 | Heart Health Park                              |    11569 |    0.9185755 |    0.8536606 | Sacramento       | California       |       53 |
-| Louisville City FC              |   10547 | 179299 |    17 |        10465 |  0.01 | Lynn Family Stadium                            |    15304 |    0.6891662 |    0.6838082 | Louisville       | Kentucky         |       72 |
-| Indy Eleven                     |    9709 | 155349 |    16 |         8285 |  0.17 | IU Michael A. Carroll Track & Soccer Stadium   |    10524 |    0.9225580 |    0.7872482 | Indianapolis     | Indiana          |       41 |
-| New Mexico United               |    9619 | 163518 |    17 |        10724 | -0.10 | Rio Grande Credit Union Field at Isotopes Park |    13500 |    0.7125185 |    0.7943704 | Albuquerque      | New Mexico       |       51 |
-| Colorado Springs Switchbacks FC |    7753 | 124044 |    16 |         7199 |  0.08 | Weidner Field                                  |     8000 |    0.9691250 |    0.8998750 | Colorado Springs | Colorado         |       55 |
-| Phoenix Rising FC               |    7409 |  29634 |     4 |         6401 |  0.16 | Phoenix Rising Soccer Stadium                  |    10000 |    0.7409000 |    0.6401000 | Phoenix          | Arizona          |       42 |
-| San Antonio FC                  |    7325 | 124522 |    17 |         5980 |  0.22 | Toyota Field                                   |     8296 |    0.8829556 |    0.7208293 | San Antonio      | Texas            |       77 |
-| Detroit City FC                 |    6032 | 102544 |    17 |         6118 | -0.01 | Keyworth Stadium                               |     7933 |    0.7603681 |    0.7712089 | Hamtramck        | Michigan         |       54 |
-| Tampa Bay Rowdies               |    5984 |  77797 |    13 |         5148 |  0.16 | Al Lang Stadium                                |     7227 |    0.8280061 |    0.7123288 | St. Petersburg   | Florida          |       67 |
-| Pittsburgh Riverhounds          |    5073 |  76095 |    15 |         3934 |  0.29 | Highmark Stadium                               |     5000 |    1.0146000 |    0.7868000 | Pittsburgh       | Pennsylvania     |       57 |
-| Hartford Athletic               |    4882 |  73224 |    15 |         5178 | -0.06 | Trinity Health Stadium                         |     5500 |    0.8876364 |    0.9414545 | Hartford         | Connecticut      |       36 |
-| Orange County SC                |    4411 |  70568 |    16 |         4230 |  0.04 | Championship Soccer Stadium                    |     5000 |    0.8822000 |    0.8460000 | Irvine           | California       |       34 |
-| FC Tulsa                        |    4320 |  73443 |    17 |         4044 |  0.07 | ONEOK Field                                    |     7833 |    0.5515128 |    0.5162773 | Tulsa            | Oklahoma         |       42 |
-| Monterey Bay FC                 |    3963 |  67378 |    17 |         3683 |  0.08 | Cardinale Stadium                              |     6000 |    0.6605000 |    0.6138333 | Seaside          | California       |       40 |
-| Oakland Roots SC                |    3894 |  66196 |    17 |         4611 | -0.16 | Pioneer Stadium                                |     5000 |    0.7788000 |    0.9222000 | Oakland          | California       |       46 |
-| Memphis 901 FC                  |    3344 |  33439 |    10 |         3683 | -0.09 | AutoZone Park                                  |    10000 |    0.3344000 |    0.3683000 | Memphis          | Tennessee        |       68 |
-| Charleston Battery              |    3113 |  52919 |    17 |         2797 |  0.11 | Patriots Point Soccer Complex                  |     5000 |    0.6226000 |    0.5594000 | Mount Pleasant   | South Carolina   |       25 |
-| Loudoun United FC               |    2664 |  45288 |    17 |         1583 |  0.68 | Segra Field                                    |     5000 |    0.5328000 |    0.3166000 | Leesburg         | Virginia         |       28 |
-| Miami FC                        |    1432 |  24340 |    17 |         1162 |  0.23 | Riccardo Silva Stadium                         |    25000 |    0.0572800 |    0.0464800 | University Park  | Florida          |       55 |
-| Atlanta United FC               |   47526 | 807947 |    17 |        41116 |  0.16 | Mercedes-Benz Stadium ‡                        |    42500 |    1.1182588 |    0.9674353 | Atlanta          | Georgia          |       40 |
-| Charlotte FC                    |   35544 | 604246 |    17 |        35260 |  0.01 | Bank of America Stadium                        |    38000 |    0.9353684 |    0.9278947 | Charlotte        | North Carolina   |       42 |
-| Seattle Sounders                |   32161 | 546744 |    17 |        33607 | -0.04 | Lumen Field                                    |    37722 |    0.8525794 |    0.8909125 | Seattle          | Washington       |       41 |
-| Nashville SC                    |   28257 | 480370 |    17 |        27554 |  0.03 | Geodis Park                                    |    30000 |    0.9419000 |    0.9184667 | Nashville        | Tennessee        |       50 |
-| FC Cincinnati                   |   25367 | 431237 |    17 |        22487 |  0.13 | TQL Stadium                                    |    26000 |    0.9756538 |    0.8648846 | Cincinnati       | Ohio             |       49 |
-| Toronto FC                      |   25310 | 430263 |    17 |        25423 |  0.00 | BMO Field                                      |    30991 |    0.8166887 |    0.8203349 | Toronto          | Ontario          |       34 |
-| Los Angeles Galaxy              |   24106 | 409794 |    17 |        22841 |  0.06 | Dignity Health Sports Park                     |    27000 |    0.8928148 |    0.8459630 | Carson           | California       |       50 |
-| New England Revolution          |   23940 | 406981 |    17 |        20319 |  0.18 | Gillette Stadium                               |    20000 |    1.1970000 |    1.0159500 | Foxborough       | Massachusetts    |       42 |
-| Portland Timbers                |   23103 | 392744 |    17 |        23841 | -0.03 | Providence Park                                |    25218 |    0.9161313 |    0.9453961 | Portland         | Oregon           |       46 |
-| Los Angeles FC                  |   22155 | 376643 |    17 |        22090 |  0.00 | BMO Stadium                                    |    22000 |    1.0070455 |    1.0040909 | Los Angeles      | California       |       67 |
-| Austin FC                       |   20738 | 352546 |    17 |        20738 |  0.00 | Q2 Stadium                                     |    20738 |    1.0000000 |    1.0000000 | Austin           | Texas            |       56 |
-| Orlando City SC                 |   20590 | 350023 |    17 |        17261 |  0.19 | Inter&Co Stadium                               |    25500 |    0.8074510 |    0.6769020 | Orlando          | Florida          |       48 |
-| Columbus Crew                   |   20314 | 345338 |    17 |        19237 |  0.06 | Lower.com Field                                |    20371 |    0.9972019 |    0.9443326 | Columbus         | Ohio             |       46 |
-| Minnesota United                |   19568 | 332659 |    17 |        19555 |  0.00 | Allianz Field                                  |    19400 |    1.0086598 |    1.0079897 | Saint Paul       | Minnesota        |       48 |
-| New York City FC                |   19477 | 331109 |    17 |        17180 |  0.13 | Yankee Stadium                                 |    30321 |    0.6423601 |    0.5666040 | Bronx            | New York         |       55 |
-| Real Salt Lake                  |   19429 | 330290 |    17 |        20470 | -0.05 | America First Field                            |    20213 |    0.9612131 |    1.0127146 | Sandy            | Utah             |       47 |
-| Philadelphia Union              |   18907 | 321416 |    17 |        18126 |  0.04 | Subaru Park                                    |    18500 |    1.0220000 |    0.9797838 | Chester          | Pennsylvania     |       67 |
-| Sporting Kansas City            |   18616 | 316474 |    17 |        18365 |  0.01 | Children’s Mercy Park                          |    18467 |    1.0080684 |    0.9944766 | Kansas City      | Kansas           |       40 |
-| San Jose Earthquakes            |   18412 | 313003 |    17 |        15260 |  0.21 | PayPal Park                                    |    18000 |    1.0228889 |    0.8477778 | San Jose         | California       |       35 |
-| New York Red Bulls              |   18246 | 310190 |    17 |        17002 |  0.07 | Red Bull Arena                                 |    25000 |    0.7298400 |    0.6800800 | Harrison         | New Jersey       |       53 |
-| FC Dallas                       |   18239 | 310065 |    17 |        17469 |  0.04 | Toyota Stadium                                 |    19096 |    0.9551215 |    0.9147989 | Frisco           | Texas            |       53 |
-| Chicago Fire                    |   18175 | 308975 |    17 |        15848 |  0.15 | Soldier Field                                  |    24955 |    0.7283110 |    0.6350631 | Chicago          | Illinois         |       39 |
-| Inter Miami CF                  |   17579 | 281257 |    16 |        12637 |  0.39 | Chase Stadium                                  |    21550 |    0.8157309 |    0.5864037 | Fort Lauderdale  | Florida          |       48 |
-| CF Montreal                     |   17562 | 298556 |    17 |        15905 |  0.10 | Saputo Stadium                                 |    19619 |    0.8951527 |    0.8106937 | Montreal         | Quebec           |       65 |
-| D.C. United                     |   17540 | 298185 |    17 |        16256 |  0.08 | Audi Field                                     |    20000 |    0.8770000 |    0.8128000 | Washington       | D.C.             |       27 |
-| Vancouver Whitecaps             |   16745 | 284661 |    17 |        16399 |  0.02 | BC Place ‡                                     |    22120 |    0.7570072 |    0.7413653 | Vancouver        | British Columbia |       43 |
-| Colorado Rapids                 |   15409 | 261953 |    17 |        14473 |  0.06 | Dick’s Sporting Goods Park                     |    18061 |    0.8531643 |    0.8013399 | Commerce City    | Colorado         |       43 |
-| Houston Dynamo                  |   15027 | 255465 |    17 |        16426 | -0.09 | Shell Energy Stadium                           |    22039 |    0.6818367 |    0.7453151 | Houston          | Texas            |       36 |
+| Teams | Average | Totals | Games | 2022 Average | YOY | Stadium | Capacity | %\_2023_Fill | %\_2022_Fill | City | State | 2022 Pts |
+|:---|---:|---:|---:|---:|---:|:---|---:|---:|---:|:---|:---|---:|
+| Sacramento Republic FC | 10627 | 180665 | 17 | 9876 | 0.08 | Heart Health Park | 11569 | 0.9185755 | 0.8536606 | Sacramento | California | 53 |
+| Louisville City FC | 10547 | 179299 | 17 | 10465 | 0.01 | Lynn Family Stadium | 15304 | 0.6891662 | 0.6838082 | Louisville | Kentucky | 72 |
+| Indy Eleven | 9709 | 155349 | 16 | 8285 | 0.17 | IU Michael A. Carroll Track & Soccer Stadium | 10524 | 0.9225580 | 0.7872482 | Indianapolis | Indiana | 41 |
+| New Mexico United | 9619 | 163518 | 17 | 10724 | -0.10 | Rio Grande Credit Union Field at Isotopes Park | 13500 | 0.7125185 | 0.7943704 | Albuquerque | New Mexico | 51 |
+| Colorado Springs Switchbacks FC | 7753 | 124044 | 16 | 7199 | 0.08 | Weidner Field | 8000 | 0.9691250 | 0.8998750 | Colorado Springs | Colorado | 55 |
+| Phoenix Rising FC | 7409 | 29634 | 4 | 6401 | 0.16 | Phoenix Rising Soccer Stadium | 10000 | 0.7409000 | 0.6401000 | Phoenix | Arizona | 42 |
+| San Antonio FC | 7325 | 124522 | 17 | 5980 | 0.22 | Toyota Field | 8296 | 0.8829556 | 0.7208293 | San Antonio | Texas | 77 |
+| Detroit City FC | 6032 | 102544 | 17 | 6118 | -0.01 | Keyworth Stadium | 7933 | 0.7603681 | 0.7712089 | Hamtramck | Michigan | 54 |
+| Tampa Bay Rowdies | 5984 | 77797 | 13 | 5148 | 0.16 | Al Lang Stadium | 7227 | 0.8280061 | 0.7123288 | St. Petersburg | Florida | 67 |
+| Pittsburgh Riverhounds | 5073 | 76095 | 15 | 3934 | 0.29 | Highmark Stadium | 5000 | 1.0146000 | 0.7868000 | Pittsburgh | Pennsylvania | 57 |
+| Hartford Athletic | 4882 | 73224 | 15 | 5178 | -0.06 | Trinity Health Stadium | 5500 | 0.8876364 | 0.9414545 | Hartford | Connecticut | 36 |
+| Orange County SC | 4411 | 70568 | 16 | 4230 | 0.04 | Championship Soccer Stadium | 5000 | 0.8822000 | 0.8460000 | Irvine | California | 34 |
+| FC Tulsa | 4320 | 73443 | 17 | 4044 | 0.07 | ONEOK Field | 7833 | 0.5515128 | 0.5162773 | Tulsa | Oklahoma | 42 |
+| Monterey Bay FC | 3963 | 67378 | 17 | 3683 | 0.08 | Cardinale Stadium | 6000 | 0.6605000 | 0.6138333 | Seaside | California | 40 |
+| Oakland Roots SC | 3894 | 66196 | 17 | 4611 | -0.16 | Pioneer Stadium | 5000 | 0.7788000 | 0.9222000 | Oakland | California | 46 |
+| Memphis 901 FC | 3344 | 33439 | 10 | 3683 | -0.09 | AutoZone Park | 10000 | 0.3344000 | 0.3683000 | Memphis | Tennessee | 68 |
+| Charleston Battery | 3113 | 52919 | 17 | 2797 | 0.11 | Patriots Point Soccer Complex | 5000 | 0.6226000 | 0.5594000 | Mount Pleasant | South Carolina | 25 |
+| Loudoun United FC | 2664 | 45288 | 17 | 1583 | 0.68 | Segra Field | 5000 | 0.5328000 | 0.3166000 | Leesburg | Virginia | 28 |
+| Miami FC | 1432 | 24340 | 17 | 1162 | 0.23 | Riccardo Silva Stadium | 25000 | 0.0572800 | 0.0464800 | University Park | Florida | 55 |
+| Atlanta United FC | 47526 | 807947 | 17 | 41116 | 0.16 | Mercedes-Benz Stadium ‡ | 42500 | 1.1182588 | 0.9674353 | Atlanta | Georgia | 40 |
+| Charlotte FC | 35544 | 604246 | 17 | 35260 | 0.01 | Bank of America Stadium | 38000 | 0.9353684 | 0.9278947 | Charlotte | North Carolina | 42 |
+| Seattle Sounders | 32161 | 546744 | 17 | 33607 | -0.04 | Lumen Field | 37722 | 0.8525794 | 0.8909125 | Seattle | Washington | 41 |
+| Nashville SC | 28257 | 480370 | 17 | 27554 | 0.03 | Geodis Park | 30000 | 0.9419000 | 0.9184667 | Nashville | Tennessee | 50 |
+| FC Cincinnati | 25367 | 431237 | 17 | 22487 | 0.13 | TQL Stadium | 26000 | 0.9756538 | 0.8648846 | Cincinnati | Ohio | 49 |
+| Toronto FC | 25310 | 430263 | 17 | 25423 | 0.00 | BMO Field | 30991 | 0.8166887 | 0.8203349 | Toronto | Ontario | 34 |
+| Los Angeles Galaxy | 24106 | 409794 | 17 | 22841 | 0.06 | Dignity Health Sports Park | 27000 | 0.8928148 | 0.8459630 | Carson | California | 50 |
+| New England Revolution | 23940 | 406981 | 17 | 20319 | 0.18 | Gillette Stadium | 20000 | 1.1970000 | 1.0159500 | Foxborough | Massachusetts | 42 |
+| Portland Timbers | 23103 | 392744 | 17 | 23841 | -0.03 | Providence Park | 25218 | 0.9161313 | 0.9453961 | Portland | Oregon | 46 |
+| Los Angeles FC | 22155 | 376643 | 17 | 22090 | 0.00 | BMO Stadium | 22000 | 1.0070455 | 1.0040909 | Los Angeles | California | 67 |
+| Austin FC | 20738 | 352546 | 17 | 20738 | 0.00 | Q2 Stadium | 20738 | 1.0000000 | 1.0000000 | Austin | Texas | 56 |
+| Orlando City SC | 20590 | 350023 | 17 | 17261 | 0.19 | Inter&Co Stadium | 25500 | 0.8074510 | 0.6769020 | Orlando | Florida | 48 |
+| Columbus Crew | 20314 | 345338 | 17 | 19237 | 0.06 | Lower.com Field | 20371 | 0.9972019 | 0.9443326 | Columbus | Ohio | 46 |
+| Minnesota United | 19568 | 332659 | 17 | 19555 | 0.00 | Allianz Field | 19400 | 1.0086598 | 1.0079897 | Saint Paul | Minnesota | 48 |
+| New York City FC | 19477 | 331109 | 17 | 17180 | 0.13 | Yankee Stadium | 30321 | 0.6423601 | 0.5666040 | Bronx | New York | 55 |
+| Real Salt Lake | 19429 | 330290 | 17 | 20470 | -0.05 | America First Field | 20213 | 0.9612131 | 1.0127146 | Sandy | Utah | 47 |
+| Philadelphia Union | 18907 | 321416 | 17 | 18126 | 0.04 | Subaru Park | 18500 | 1.0220000 | 0.9797838 | Chester | Pennsylvania | 67 |
+| Sporting Kansas City | 18616 | 316474 | 17 | 18365 | 0.01 | Children’s Mercy Park | 18467 | 1.0080684 | 0.9944766 | Kansas City | Kansas | 40 |
+| San Jose Earthquakes | 18412 | 313003 | 17 | 15260 | 0.21 | PayPal Park | 18000 | 1.0228889 | 0.8477778 | San Jose | California | 35 |
+| New York Red Bulls | 18246 | 310190 | 17 | 17002 | 0.07 | Red Bull Arena | 25000 | 0.7298400 | 0.6800800 | Harrison | New Jersey | 53 |
+| FC Dallas | 18239 | 310065 | 17 | 17469 | 0.04 | Toyota Stadium | 19096 | 0.9551215 | 0.9147989 | Frisco | Texas | 53 |
+| Chicago Fire | 18175 | 308975 | 17 | 15848 | 0.15 | Soldier Field | 24955 | 0.7283110 | 0.6350631 | Chicago | Illinois | 39 |
+| Inter Miami CF | 17579 | 281257 | 16 | 12637 | 0.39 | Chase Stadium | 21550 | 0.8157309 | 0.5864037 | Fort Lauderdale | Florida | 48 |
+| CF Montreal | 17562 | 298556 | 17 | 15905 | 0.10 | Saputo Stadium | 19619 | 0.8951527 | 0.8106937 | Montreal | Quebec | 65 |
+| D.C. United | 17540 | 298185 | 17 | 16256 | 0.08 | Audi Field | 20000 | 0.8770000 | 0.8128000 | Washington | D.C. | 27 |
+| Vancouver Whitecaps | 16745 | 284661 | 17 | 16399 | 0.02 | BC Place ‡ | 22120 | 0.7570072 | 0.7413653 | Vancouver | British Columbia | 43 |
+| Colorado Rapids | 15409 | 261953 | 17 | 14473 | 0.06 | Dick’s Sporting Goods Park | 18061 | 0.8531643 | 0.8013399 | Commerce City | Colorado | 43 |
+| Houston Dynamo | 15027 | 255465 | 17 | 16426 | -0.09 | Shell Energy Stadium | 22039 | 0.6818367 | 0.7453151 | Houston | Texas | 36 |
 
 ## Governor Raitings
 
 Here is the Governor rating data taken from Morning Consult Pro. This
 data was then added to the main data frame.
 
-| period_start | period_end | State          | Governor               | demo              |     n | Margin of error | Approve | Dissaprove | Don’t know/No opinion |
-|:-------------|:-----------|:---------------|:-----------------------|:------------------|------:|:----------------|:--------|:-----------|:----------------------|
-| 4/1/2023     | 6/30/2023  | Alabama        | Kay Ivey               | Registered Voters |  4422 | 1%              | 62%     | 32%        | 6%                    |
-| 4/1/2023     | 6/30/2023  | Alaska         | Michael Dunleavy       | Registered Voters |   380 | 5%              | 62%     | 28%        | 10%                   |
-| 4/1/2023     | 6/30/2023  | Arizona        | Katie Hobbs            | Registered Voters |  5225 | 1%              | 47%     | 40%        | 13%                   |
-| 4/1/2023     | 6/30/2023  | Arkansas       | Sarah Huckabee Sanders | Registered Voters |  2541 | 2%              | 60%     | 30%        | 10%                   |
-| 4/1/2023     | 6/30/2023  | California     | Gavin Newsom           | Registered Voters | 20247 | 1%              | 56%     | 37%        | 6%                    |
-| 4/1/2023     | 6/30/2023  | Colorado       | Jared Polis            | Registered Voters |  3408 | 2%              | 60%     | 32%        | 8%                    |
-| 4/1/2023     | 6/30/2023  | Connecticut    | Ned Lamont             | Registered Voters |  3307 | 2%              | 62%     | 32%        | 6%                    |
-| 4/1/2023     | 6/30/2023  | Delaware       | John Carney            | Registered Voters |  1161 | 3%              | 55%     | 32%        | 13%                   |
-| 4/1/2023     | 6/30/2023  | Florida        | Ron DeSantis           | Registered Voters | 22556 | 1%              | 54%     | 42%        | 4%                    |
-| 4/1/2023     | 6/30/2023  | Georgia        | Brian Kemp             | Registered Voters | 10176 | 1%              | 59%     | 33%        | 8%                    |
-| 4/1/2023     | 6/30/2023  | Hawaii         | Josh Green             | Registered Voters |   720 | 4%              | 64%     | 24%        | 12%                   |
-| 4/1/2023     | 6/30/2023  | Idaho          | Brad Little            | Registered Voters |   838 | 3%              | 54%     | 38%        | 8%                    |
-| 4/1/2023     | 6/30/2023  | Illinois       | JB Pritzker            | Registered Voters | 11054 | 1%              | 54%     | 41%        | 5%                    |
-| 4/1/2023     | 6/30/2023  | Indiana        | Eric Holcomb           | Registered Voters |  5854 | 1%              | 55%     | 35%        | 10%                   |
-| 4/1/2023     | 6/30/2023  | Iowa           | Kim Reynolds           | Registered Voters |  2400 | 2%              | 54%     | 42%        | 4%                    |
-| 4/1/2023     | 6/30/2023  | Kansas         | Laura Kelly            | Registered Voters |  2122 | 2%              | 58%     | 34%        | 7%                    |
-| 4/1/2023     | 6/30/2023  | Kentucky       | Andy Beshear           | Registered Voters |  4921 | 1%              | 64%     | 32%        | 5%                    |
-| 4/1/2023     | 6/30/2023  | Louisiana      | John Bel Edwards       | Registered Voters |  3426 | 2%              | 53%     | 39%        | 8%                    |
-| 4/1/2023     | 6/30/2023  | Maine          | Janet Mills            | Registered Voters |  1350 | 3%              | 59%     | 39%        | 3%                    |
-| 4/1/2023     | 6/30/2023  | Maryland       | Wes Moore              | Registered Voters |  4779 | 1%              | 58%     | 22%        | 20%                   |
-| 4/1/2023     | 6/30/2023  | Massachusetts  | Maura Healey           | Registered Voters |  5138 | 1%              | 60%     | 23%        | 17%                   |
-| 4/1/2023     | 6/30/2023  | Michigan       | Gretchen Whitmer       | Registered Voters |  9975 | 1%              | 57%     | 39%        | 4%                    |
-| 4/1/2023     | 6/30/2023  | Minnesota      | Tim Walz               | Registered Voters |  4008 | 2%              | 54%     | 42%        | 4%                    |
-| 4/1/2023     | 6/30/2023  | Mississippi    | Tate Reeves            | Registered Voters |  2380 | 2%              | 48%     | 42%        | 11%                   |
-| 4/1/2023     | 6/30/2023  | Missouri       | Mike Parson            | Registered Voters |  5166 | 1%              | 51%     | 36%        | 13%                   |
-| 4/1/2023     | 6/30/2023  | Montana        | Greg Gianforte         | Registered Voters |   619 | 4%              | 57%     | 33%        | 10%                   |
-| 4/1/2023     | 6/30/2023  | Nebraska       | Jim Pillen             | Registered Voters |  1314 | 3%              | 51%     | 29%        | 20%                   |
-| 4/1/2023     | 6/30/2023  | Nevada         | Joseph Lombardo        | Registered Voters |  2863 | 2%              | 57%     | 26%        | 17%                   |
-| 4/1/2023     | 6/30/2023  | New Hampshire  | Chris Sununu           | Registered Voters |  1372 | 3%              | 64%     | 29%        | 7%                    |
-| 4/1/2023     | 6/30/2023  | New Jersey     | Philip Murphy          | Registered Voters |  7732 | 1%              | 55%     | 37%        | 8%                    |
-| 4/1/2023     | 6/30/2023  | New Mexico     | Michelle Lujan Grisham | Registered Voters |  1155 | 3%              | 52%     | 42%        | 6%                    |
-| 4/1/2023     | 6/30/2023  | New York       | Kathy Hochul           | Registered Voters | 19856 | 1%              | 51%     | 40%        | 9%                    |
-| 4/1/2023     | 6/30/2023  | North Carolina | Roy Cooper III         | Registered Voters |  9906 | 1%              | 54%     | 36%        | 10%                   |
-| 4/1/2023     | 6/30/2023  | North Dakota   | Doug Burgum            | Registered Voters |   470 | 5%              | 57%     | 27%        | 16%                   |
-| 4/1/2023     | 6/30/2023  | Ohio           | Mike DeWine            | Registered Voters | 11851 | 1%              | 57%     | 36%        | 7%                    |
-| 4/1/2023     | 6/30/2023  | Oklahoma       | Kevin Stitt            | Registered Voters |  3180 | 2%              | 51%     | 40%        | 9%                    |
-| 4/1/2023     | 6/30/2023  | Oregon         | Tina Kotek             | Registered Voters |  2644 | 2%              | 45%     | 39%        | 16%                   |
-| 4/1/2023     | 6/30/2023  | Pennsylvania   | Josh Shapiro           | Registered Voters | 14599 | 1%              | 56%     | 28%        | 17%                   |
-| 4/1/2023     | 6/30/2023  | Rhode Island   | Dan McKee              | Registered Voters |  1018 | 3%              | 52%     | 33%        | 15%                   |
-| 4/1/2023     | 6/30/2023  | South Carolina | Henry McMaster         | Registered Voters |  5347 | 1%              | 56%     | 33%        | 11%                   |
-| 4/1/2023     | 6/30/2023  | South Dakota   | Kristi Noem            | Registered Voters |   599 | 4%              | 63%     | 35%        | 2%                    |
-| 4/1/2023     | 6/30/2023  | Tennessee      | Bill Lee               | Registered Voters |  5997 | 1%              | 59%     | 32%        | 9%                    |
-| 4/1/2023     | 6/30/2023  | Texas          | Gregory Abbott         | Registered Voters | 19050 | 1%              | 53%     | 42%        | 5%                    |
-| 4/1/2023     | 6/30/2023  | Utah           | Spencer Cox            | Registered Voters |  1487 | 3%              | 61%     | 26%        | 13%                   |
-| 4/1/2023     | 6/30/2023  | Vermont        | Phil Scott             | Registered Voters |   513 | 4%              | 76%     | 22%        | 2%                    |
-| 4/1/2023     | 6/30/2023  | Virginia       | Glenn Youngkin         | Registered Voters |  8123 | 1%              | 57%     | 32%        | 11%                   |
-| 4/1/2023     | 6/30/2023  | Washington     | Jay Inslee             | Registered Voters |  4239 | 2%              | 51%     | 43%        | 6%                    |
-| 4/1/2023     | 6/30/2023  | West Virginia  | Jim Justice            | Registered Voters |  2112 | 2%              | 62%     | 33%        | 5%                    |
-| 4/1/2023     | 6/30/2023  | Wisconsin      | Tony Evers             | Registered Voters |  4949 | 1%              | 51%     | 44%        | 5%                    |
-| 4/1/2023     | 6/30/2023  | Wyoming        | Mark Gordon            | Registered Voters |   285 | 6%              | 69%     | 19%        | 11%                   |
+| period_start | period_end | State | Governor | demo | n | Margin of error | Approve | Dissaprove | Don’t know/No opinion |
+|:---|:---|:---|:---|:---|---:|:---|:---|:---|:---|
+| 4/1/2023 | 6/30/2023 | Alabama | Kay Ivey | Registered Voters | 4422 | 1% | 62% | 32% | 6% |
+| 4/1/2023 | 6/30/2023 | Alaska | Michael Dunleavy | Registered Voters | 380 | 5% | 62% | 28% | 10% |
+| 4/1/2023 | 6/30/2023 | Arizona | Katie Hobbs | Registered Voters | 5225 | 1% | 47% | 40% | 13% |
+| 4/1/2023 | 6/30/2023 | Arkansas | Sarah Huckabee Sanders | Registered Voters | 2541 | 2% | 60% | 30% | 10% |
+| 4/1/2023 | 6/30/2023 | California | Gavin Newsom | Registered Voters | 20247 | 1% | 56% | 37% | 6% |
+| 4/1/2023 | 6/30/2023 | Colorado | Jared Polis | Registered Voters | 3408 | 2% | 60% | 32% | 8% |
+| 4/1/2023 | 6/30/2023 | Connecticut | Ned Lamont | Registered Voters | 3307 | 2% | 62% | 32% | 6% |
+| 4/1/2023 | 6/30/2023 | Delaware | John Carney | Registered Voters | 1161 | 3% | 55% | 32% | 13% |
+| 4/1/2023 | 6/30/2023 | Florida | Ron DeSantis | Registered Voters | 22556 | 1% | 54% | 42% | 4% |
+| 4/1/2023 | 6/30/2023 | Georgia | Brian Kemp | Registered Voters | 10176 | 1% | 59% | 33% | 8% |
+| 4/1/2023 | 6/30/2023 | Hawaii | Josh Green | Registered Voters | 720 | 4% | 64% | 24% | 12% |
+| 4/1/2023 | 6/30/2023 | Idaho | Brad Little | Registered Voters | 838 | 3% | 54% | 38% | 8% |
+| 4/1/2023 | 6/30/2023 | Illinois | JB Pritzker | Registered Voters | 11054 | 1% | 54% | 41% | 5% |
+| 4/1/2023 | 6/30/2023 | Indiana | Eric Holcomb | Registered Voters | 5854 | 1% | 55% | 35% | 10% |
+| 4/1/2023 | 6/30/2023 | Iowa | Kim Reynolds | Registered Voters | 2400 | 2% | 54% | 42% | 4% |
+| 4/1/2023 | 6/30/2023 | Kansas | Laura Kelly | Registered Voters | 2122 | 2% | 58% | 34% | 7% |
+| 4/1/2023 | 6/30/2023 | Kentucky | Andy Beshear | Registered Voters | 4921 | 1% | 64% | 32% | 5% |
+| 4/1/2023 | 6/30/2023 | Louisiana | John Bel Edwards | Registered Voters | 3426 | 2% | 53% | 39% | 8% |
+| 4/1/2023 | 6/30/2023 | Maine | Janet Mills | Registered Voters | 1350 | 3% | 59% | 39% | 3% |
+| 4/1/2023 | 6/30/2023 | Maryland | Wes Moore | Registered Voters | 4779 | 1% | 58% | 22% | 20% |
+| 4/1/2023 | 6/30/2023 | Massachusetts | Maura Healey | Registered Voters | 5138 | 1% | 60% | 23% | 17% |
+| 4/1/2023 | 6/30/2023 | Michigan | Gretchen Whitmer | Registered Voters | 9975 | 1% | 57% | 39% | 4% |
+| 4/1/2023 | 6/30/2023 | Minnesota | Tim Walz | Registered Voters | 4008 | 2% | 54% | 42% | 4% |
+| 4/1/2023 | 6/30/2023 | Mississippi | Tate Reeves | Registered Voters | 2380 | 2% | 48% | 42% | 11% |
+| 4/1/2023 | 6/30/2023 | Missouri | Mike Parson | Registered Voters | 5166 | 1% | 51% | 36% | 13% |
+| 4/1/2023 | 6/30/2023 | Montana | Greg Gianforte | Registered Voters | 619 | 4% | 57% | 33% | 10% |
+| 4/1/2023 | 6/30/2023 | Nebraska | Jim Pillen | Registered Voters | 1314 | 3% | 51% | 29% | 20% |
+| 4/1/2023 | 6/30/2023 | Nevada | Joseph Lombardo | Registered Voters | 2863 | 2% | 57% | 26% | 17% |
+| 4/1/2023 | 6/30/2023 | New Hampshire | Chris Sununu | Registered Voters | 1372 | 3% | 64% | 29% | 7% |
+| 4/1/2023 | 6/30/2023 | New Jersey | Philip Murphy | Registered Voters | 7732 | 1% | 55% | 37% | 8% |
+| 4/1/2023 | 6/30/2023 | New Mexico | Michelle Lujan Grisham | Registered Voters | 1155 | 3% | 52% | 42% | 6% |
+| 4/1/2023 | 6/30/2023 | New York | Kathy Hochul | Registered Voters | 19856 | 1% | 51% | 40% | 9% |
+| 4/1/2023 | 6/30/2023 | North Carolina | Roy Cooper III | Registered Voters | 9906 | 1% | 54% | 36% | 10% |
+| 4/1/2023 | 6/30/2023 | North Dakota | Doug Burgum | Registered Voters | 470 | 5% | 57% | 27% | 16% |
+| 4/1/2023 | 6/30/2023 | Ohio | Mike DeWine | Registered Voters | 11851 | 1% | 57% | 36% | 7% |
+| 4/1/2023 | 6/30/2023 | Oklahoma | Kevin Stitt | Registered Voters | 3180 | 2% | 51% | 40% | 9% |
+| 4/1/2023 | 6/30/2023 | Oregon | Tina Kotek | Registered Voters | 2644 | 2% | 45% | 39% | 16% |
+| 4/1/2023 | 6/30/2023 | Pennsylvania | Josh Shapiro | Registered Voters | 14599 | 1% | 56% | 28% | 17% |
+| 4/1/2023 | 6/30/2023 | Rhode Island | Dan McKee | Registered Voters | 1018 | 3% | 52% | 33% | 15% |
+| 4/1/2023 | 6/30/2023 | South Carolina | Henry McMaster | Registered Voters | 5347 | 1% | 56% | 33% | 11% |
+| 4/1/2023 | 6/30/2023 | South Dakota | Kristi Noem | Registered Voters | 599 | 4% | 63% | 35% | 2% |
+| 4/1/2023 | 6/30/2023 | Tennessee | Bill Lee | Registered Voters | 5997 | 1% | 59% | 32% | 9% |
+| 4/1/2023 | 6/30/2023 | Texas | Gregory Abbott | Registered Voters | 19050 | 1% | 53% | 42% | 5% |
+| 4/1/2023 | 6/30/2023 | Utah | Spencer Cox | Registered Voters | 1487 | 3% | 61% | 26% | 13% |
+| 4/1/2023 | 6/30/2023 | Vermont | Phil Scott | Registered Voters | 513 | 4% | 76% | 22% | 2% |
+| 4/1/2023 | 6/30/2023 | Virginia | Glenn Youngkin | Registered Voters | 8123 | 1% | 57% | 32% | 11% |
+| 4/1/2023 | 6/30/2023 | Washington | Jay Inslee | Registered Voters | 4239 | 2% | 51% | 43% | 6% |
+| 4/1/2023 | 6/30/2023 | West Virginia | Jim Justice | Registered Voters | 2112 | 2% | 62% | 33% | 5% |
+| 4/1/2023 | 6/30/2023 | Wisconsin | Tony Evers | Registered Voters | 4949 | 1% | 51% | 44% | 5% |
+| 4/1/2023 | 6/30/2023 | Wyoming | Mark Gordon | Registered Voters | 285 | 6% | 69% | 19% | 11% |
 
 ## Club Finances
 
