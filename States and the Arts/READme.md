@@ -256,19 +256,19 @@ please reference the R script in this projects folder.
 
 Some negative correlation when looking at poverty rates and reading
 rates by state.
-![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](READme_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 #### Percent of People Who Create Visual Art by State
 
-![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](READme_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 #### Percent of People Who do Leather, Wood, Metal or Fabric Work
 
-![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](READme_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 #### Percent of People who Play an Instrument
 
-![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](READme_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 #### The “Arts Score”
 
@@ -332,4 +332,4 @@ score the more art participation and consuption.
 
 #### Map visulizations
 
-![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-10-3.png)<!-- -->![](GitHub-Markdown_files/figure-gfm/unnamed-chunk-10-4.png)<!-- -->
+![](READme_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->![](READme_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->![](READme_files/figure-gfm/unnamed-chunk-10-3.png)<!-- -->![](READme_files/figure-gfm/unnamed-chunk-10-4.png)<!-- -->
