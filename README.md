@@ -4,7 +4,7 @@ investigate public trends and correlative relationships. Most of my experience i
 Projects:
 
 * [Regression Analysis of Democratic Freedom and Income Inequality](https://github.com/connorc267/Connor-Campbell-Portfolio/tree/main/Regression%20Modeling%20Democratic%20Freedom%20and%20Income%20Inequality)
-  *   An analysis of the effects of democratic freedom on income inequality utilizing World Bank development indicators - specifically measures like the GINI coefficient - and democratic freedom scores.
+  *   An analysis of the effects of democratic freedom on income inequality utilizing World Bank Development Indicators - specifically measures like the GINI coefficient - and democratic freedom scores.
   *   Full analysis using regression techniques.
 * [Census Data and US Art Survey Analysis](https://github.com/connorc267/Connor-Campbell-Portfolio/tree/main/States%20and%20the%20Arts)
   *   An exercise in data collection, cleaning, and exploratory analysis utilizing the US Census Database and the National Endowment for the Arts 2020 Arts Basic Survey.
